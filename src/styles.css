@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+footer_lower
+{
+ height:50px;
+ 
+}
+.footerClear
+{
+    clear: both;
+    margin-top: 10px;
+}
+

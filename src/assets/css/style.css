@@ -1,0 +1,66 @@
+
+/*-----student css--*/
+.tabColor {
+  background: #e9ecef;
+  height: auto;	
+}
+.nav-pills .nav-link.active, 
+.nav-pills .show>.nav-link {
+  background:#224669;
+}
+.schoolSliderButton .nearestBut ,.nearbyBut  {
+  cursor: pointer;
+  color: #5b6469;
+  background: none;
+  border:1px solid #224669;
+  border-radius: 0px;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  padding: 10px 35px;
+  text-decoration: none;
+  text-align: center;
+}
+.schoolSliderButton .nearbyBut {
+  cursor: pointer;
+  color: #5b6469;
+  background: none;
+  border:1px solid #224669;
+  border-radius:0px; 
+}
+table {
+  width: 100%;
+}
+table th {
+ background: #000;
+ color:#fff;
+ padding: 10px;	
+ border-right: 1px solid #fff;
+ text-align: center;
+}
+table td {
+ text-align: center;
+ border-right: 1px solid #fff;
+ border-bottom: 1px solid #fff;
+ border-left: 1px solid #fff;
+ padding: 10px;	
+}
+/*-----notic css---*/
+.createNoticeBox {
+ background: #e9ecef;
+ padding: 15px;	
+ margin:20px 0;
+}
+.noticTitle input,.noticeDate input {
+ width:100%;
+ height: 45px;
+ border:1px solid #000;	
+}
+.noticeDescription textarea {
+ width: 100%;	
+}
+
+/*---student gallery cass---*/
