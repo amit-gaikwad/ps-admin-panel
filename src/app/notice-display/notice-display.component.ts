@@ -24,8 +24,10 @@ export class NoticeDisplayCompnent{
     onUpdateClick(id:number)
     {
        // console.log(id);
-       
         this.noticeId=id;
         this.router.navigate(["NoticePost", { nId : this.noticeId }])
+    }
+    onDeleteClick(id:number){
+        console.log(id);
     }
 }
