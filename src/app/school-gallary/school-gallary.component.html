@@ -1,0 +1,28 @@
+<!-- page-file-upload.component.html -->
+<div class="school_gallery">
+<div class="container">
+  <div class="col-md-12">
+    <h2>School Gallery</h2>
+    <div class="col-md-12 imgUpload">
+     <h3>Imgaes Upload</h3> 
+      <input type="file" id="file" multiple 
+       (change)="getFileDetails($event)">
+    </div>
+    <div class="col-md-12 imgDescription">    
+     <h3>Description</h3>
+        <textarea name="message" rows="3" cols="60">Image Description</textarea>
+    </div>
+    <div class="col-md-12 btn">
+      <button (click)="uploadFiles()">Upload</button>
+      <button (click)="uploadFiles()">Delete</button>
+    </div>
+      <div class="imgFormat"> 
+        <div  *ngFor= "let item of images; let i = index;" >
+ 
+ 
+          <img [src]="item.img_url" alt="Nature" />
+       </div>
+        </div>
+   </div>
+  </div>  
+</div>
