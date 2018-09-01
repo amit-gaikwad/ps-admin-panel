@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="progDisp">
+    <form id="frm" name="frm" action="" method="POST">
+    <div class="proDisp2">Programme File Upload</div>
+    <div class="input-group mb-3 ">
+      <div class="custom-file col-md-6">
+        <input type="file" class="" id="file-chooser" (change)="selectFile($event)">
+      </div>
+      
+    </div>
+    <div class="input-group-prepend">
+      <button type="button" class="btn btn-info btn-lg" id="upload-button" (click)="onUpload($event)">Upload</button>
+    </div>   
+  </form>
+  </div>
+</div>
+
+<!-- <input type="file" id="file-chooser"(change)="selectFile($event)"/>
+    <button id="upload-button" (click)="onUpload($event)">Upload to S3</button>
+    <div id="results"></div>
+ -->

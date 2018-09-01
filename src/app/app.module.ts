@@ -12,6 +12,7 @@ import { PieChartComponent } from './pichart/piechart.-component';
 import{ FormsModule} from '@angular/forms';
 import { ChartModule} from 'angular-highcharts';
 import { ChartsComponent } from './charts/charts.component';
+import { ProgrmmeComponent } from './progrmme/progrmme.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ChartsComponent } from './charts/charts.component';
     SidebarComponent,
     PieChartComponent,
     BarChartComponent,
-    ChartsComponent
+    ChartsComponent,
+    ProgrmmeComponent
   ],
   imports: [
     BrowserModule,
