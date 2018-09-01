@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    width: 100%;
+}
+.titleSize{
+    padding-bottom: 50px;
+    
+    
+}
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding-bottom: 12px;
+    display: inline-block;
+    font-size: large;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    
+    padding: 20px;
+    width: 100%;
+}
+.textAreaSize{
+    height: 500px;
+}
+
+

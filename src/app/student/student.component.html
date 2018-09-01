@@ -1,2 +1,64 @@
-
-this is from student component
+<div class="container paddingAll">
+        <form #frm="ngForm" (ngSubmit)="submit(frm)">
+                <div class="row">
+                        <div class="form-group  col-lg-6 col-sm-6 col-xs-12 ">
+                                <label for="class">Class:</label>
+                                <input type="text"  name="class" class="form-control form-control-sm" id="class">
+                        </div>
+                        <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                <label for="Roll">Roll No:</label>
+                                <input type="text" ngModel   name="rollNo" ngModel class="form-control form-control-sm" id="Roll">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                <label for="fName">First Name:</label>
+                                <input type="text" ngModel  name="name"  class="form-control form-control-sm" id="fName">
+                        </div>
+                        <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                <label for="lName">Last Name:</label>
+                                <input type="text" class="form-control form-control-sm" id="lName"> 
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="radio col-lg-6 col-sm-6 col-xs-12">
+                                <label for="optradio">Gender:</label> <br>
+                                <label style="padding:10px;"><input  type="radio" name="optradio" checked>Male</label>
+                                <label style="padding:10px;"><input  type="radio" name="optradio">Female</label>
+                        </div>
+                        <div class="radio col-lg-6 col-sm-6 col-xs-12">
+                                <label for="BirthDate">Birth Date:</label>
+                                <input type="date"  name="BirthtDate" value="BirthDate" required class="form-control form-control-sm" />
+                        </div>
+                </div>
+                <div class="row">
+                      <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                <label for="pName">Parent Name:</label>
+                                <input type="text" class="form-control form-control-sm" id="pName"> 
+                            
+                      </div>
+                      <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                <label>Photo</label>
+                                <input type="file" name="pic" accept="image/*">
+                              
+                      </div>
+                </div>
+                <div class="row">
+                                <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                        <label for="mNo">Mobile No:</label>
+                                        <input type="text" class="form-control form-control-sm" id="mNo">  
+                                        <label for="email">Email:</label>
+                                        <input type="text" class="form-control form-control-sm" id="email">  
+                                </div>
+                                <div class="form-group col-lg-6 col-sm-6 col-xs-12">
+                                        <label for="address">Address:</label>
+                                        <textarea rows="4" cols="50"  class="form-control form-control-sm" id="address">  </textarea>    
+                                </div>
+               </div>
+               <div class="row">
+                        <div class="form-group col-lg-12 col-sm-12 col-xs-12 ">
+                           <button class="btn btn-default center-block"  type="submit">Submit</button>
+                        </div>
+                </div>
+        </form>
+</div>

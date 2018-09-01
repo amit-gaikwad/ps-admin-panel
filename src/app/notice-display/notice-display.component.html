@@ -1,0 +1,27 @@
+<div class="funnyForm">
+        <div class="container"> 
+           <h2>Notice Board</h2>
+            <div class="col-md-12 col-sm-12 col-xs-12 noticeDisplay" *ngFor="let notice of eNotices | paginate : { itemsPerPage : 3, currentPage : p}" >
+                <div class="noticeDisp">
+                    <div class="row"> 
+                        <div  class="col-md-2 col-sm-2 col-xs-12 noticeShow">
+                            <h3><b>{{notice.noticeDate | date:"fullDate" }}</b></h3>
+                            <h3>Class - {{notice.noticeClass}} </h3>
+                        </div>
+                        
+                        <div class="col-md-8 col-sm-8 col-xs-12 noticeShow">
+                             <p>{{ notice.title }}<p>
+                             <h3>{{notice.description}}</h3>  
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 noticeShow">
+                            <button class="btnUp" (click)="onUpdateClick(notice.id)">Update</button>
+                            <button class="btnDel">Delete</button>
+                        </div>
+                    
+                     </div>                   
+                </div>
+            </div>
+            <pagination-controls (pageChange) = "p = $event" > </pagination-controls>
+       
+       </div>
+      </div>
