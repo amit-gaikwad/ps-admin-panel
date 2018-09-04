@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
