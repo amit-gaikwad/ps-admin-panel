@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -11,12 +10,12 @@ export class StudentComponent implements OnInit {
   sName = "";
   sRollNo = "";
   sAge = "";
-  isMale : boolean = true;
+  gender = "male";
 
   constructor( ) { }
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   onlyDecimalNumberKey(event) {
     let charCode = (event.which) ? event.which : event.keyCode;
     if (charCode != 46 && charCode > 31
@@ -24,8 +23,10 @@ export class StudentComponent implements OnInit {
         return false;
     return true;
 }
-submit(val : any)
+
+onStudentFormSubmit(val : any)
 { 
   console.log(val);
 }
+
 }

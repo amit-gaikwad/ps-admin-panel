@@ -14,9 +14,9 @@
                     <div class="col-lg-4 col-sm-4 col-xs-12">
                         <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Student Name.." ngModel [value]="sName" #nameRef="ngModel" required>
                             <div *ngIf="nameRef.invalid && nameRef.touched">
-                                <div *ngIf="nameRef.errors.required">
+                                <span class="label label-danger" *ngIf="nameRef.errors.required">
                                     Please Enter Student Name
-                                </div>
+                                </span>
                             </div>
                     </div>
                     
@@ -27,11 +27,13 @@
                         <label for="rollno"><b>Roll No</b></label>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-12">
-                        <input id="rollno" name="rollno" placeholder="Roll Number..."  class="form-control form-control-sm" ngModel [value]="sRollNo" #rollnoRef="ngModel" required>
+                        <input id="rollno" name="rollno" placeholder="Roll Number..." 
+                        class="form-control form-control-sm" ngModel [value]="sRollNo" 
+                        #rollnoRef="ngModel" (keypress)="onlyDecimalNumberKey($event)" required>
                         <div *ngIf="rollnoRef.invalid && rollnoRef.touched">
-                            <div *ngIf="rollnoRef.errors.required">
+                            <span class="label label-danger" *ngIf="rollnoRef.errors.required">
                                 Please Enter Roll Number
-                            </div>
+                            </span>
                         </div>
                     </div>      
                 </div>
@@ -41,11 +43,13 @@
                             <label for="age"><b>Age</b></label>
                         </div>
                         <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <input type="text" id="age" name="studAge" placeholder="Age..." class="form-control form-control-sm" ngModel [value]="sAge" #ageRef="ngModel" required>
+                            <input type="text" id="age" name="studAge" placeholder="Age..." 
+                            class="form-control form-control-sm" ngModel [value]="sAge" 
+                            #ageRef="ngModel" (keypress)="onlyDecimalNumberKey($event)" required>
                             <div *ngIf="ageRef.invalid && ageRef.touched">
-                                <div *ngIf="ageRef.errors.required">
-                                    Please Enter Class
-                                </div>
+                                <span class="label label-danger" *ngIf="ageRef.errors.required">
+                                    Please Enter Age
+                                </span>
                             </div>
                         </div>
                         
@@ -61,7 +65,7 @@
                                                 Male
                                         </div>
                                         <div class="col-lg-2 col-sm-2 col-xs-12">
-                                             <input type="radio" [(ngModel)] ="isMale"  name="options" name="Gender" value="1" ngModel checked>
+                                             <input type="radio" [(ngModel)] ="gender" name="Gender" value="male" ngModel >
                                         </div> 
 
                                 </div>
@@ -70,7 +74,7 @@
                                                 Female
                                         </div>
                                         <div class="col-lg-2 col-sm-2 col-xs-12">
-                                          <input type="radio" [(ngModel)] = "isMale" name="options" name="Gender" value="2" ngModel >
+                                          <input type="radio" [(ngModel)] = "gender" name="Gender" value="female" ngModel >
                                         </div>  
                                 </div>
                                
@@ -85,9 +89,9 @@
                                 <div class="col-lg-4 col-sm-4 col-xs-12">
                                     <input type="text" id="class" name="studClass" placeholder="Class..." class="form-control form-control-sm" ngModel [value]="sClass" #classRef="ngModel" required>
                                     <div *ngIf="classRef.invalid && classRef.touched">
-                                        <div *ngIf="classRef.errors.required">
+                                        <span class="label label-danger" *ngIf="classRef.errors.required">
                                             Please Enter Class
-                                        </div>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-sm-2 col-xs-12">
@@ -95,10 +99,10 @@
                                  </div>
                                  <div class="col-lg-4 col-sm-4 col-xs-12">
                                          <input type="file" name="photo" accept="image/*" ngModel [value]="sPhoto" #photoRef="ngModel" required/>
-                                         <div *ngIf="photoRef.invalid && nameRef.touched">
-                                                <div *ngIf="photoRef.errors.required">
+                                         <div *ngIf="photoRef.invalid && photoRef.touched">
+                                                <span class="label label-danger" *ngIf="photoRef.errors.required">
                                                             Please Upload Photo
-                                                </div>
+                                                </span>
                                          </div>
                                 </div>
                 </div>
