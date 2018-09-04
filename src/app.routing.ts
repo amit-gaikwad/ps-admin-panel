@@ -9,7 +9,7 @@ import { NoticeDisplayCompnent } from "./app/notice-display/notice-display.compo
 import { StudentListComponent } from './app/student-list/student-list.component';
   const routes : Routes = [ 
    
-    { path : 'Student' , component : StudentListComponent },
+    { path : 'Student' , component : StudentComponent },
     { path : '' ,component : ChartsComponent }, 
     { path : 'NoticePost', component : NoticePostComponent },
     { path : "NoticeDisplay", component: NoticeDisplayCompnent}

@@ -43,7 +43,7 @@
                             <label for="age"><b>Age</b></label>
                         </div>
                         <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <input type="text" id="age" name="studAge" placeholder="Age..." 
+                            <input type="text" id="age" name="age" placeholder="Age..." 
                             class="form-control form-control-sm" ngModel [value]="sAge" 
                             #ageRef="ngModel" (keypress)="onlyDecimalNumberKey($event)" required>
                             <div *ngIf="ageRef.invalid && ageRef.touched">
@@ -65,20 +65,17 @@
                                                 Male
                                         </div>
                                         <div class="col-lg-2 col-sm-2 col-xs-12">
-                                             <input type="radio" [(ngModel)] ="gender" name="Gender" value="male" ngModel >
+                                             <input type="radio" [(ngModel)] ="gender" name="gender" value="male" ngModel >
                                         </div> 
-
                                 </div>
                                 <div class="row">
                                         <div class="col-lg-2 col-sm-2 col-xs-12">
                                                 Female
                                         </div>
                                         <div class="col-lg-2 col-sm-2 col-xs-12">
-                                          <input type="radio" [(ngModel)] = "gender" name="Gender" value="female" ngModel >
+                                          <input type="radio" [(ngModel)] = "gender" name="gender" value="female" ngModel >
                                         </div>  
                                 </div>
-                               
-                               
                         </div>
                 </div>
 
@@ -87,18 +84,23 @@
                                     <label for="class"><b>Class</b></label>
                                 </div>
                                 <div class="col-lg-4 col-sm-4 col-xs-12">
-                                    <input type="text" id="class" name="studClass" placeholder="Class..." class="form-control form-control-sm" ngModel [value]="sClass" #classRef="ngModel" required>
+                                    <select class="form-control form-control-sm" id="class" 
+                                    name="class" [value]="sClass" ngModel #classRef="ngModel" required>
+                                        <option *ngFor = "let class of classes">{{class}}</option>
+                                      </select>
+
                                     <div *ngIf="classRef.invalid && classRef.touched">
                                         <span class="label label-danger" *ngIf="classRef.errors.required">
                                             Please Enter Class
                                         </span>
                                     </div>
+
                                 </div>
                                 <div class="col-lg-2 col-sm-2 col-xs-12">
                                                 <label for="photo"><b>Photo</b></label>
                                  </div>
                                  <div class="col-lg-4 col-sm-4 col-xs-12">
-                                         <input type="file" name="photo" accept="image/*" ngModel [value]="sPhoto" #photoRef="ngModel" required/>
+                                         <input type="file" name="photo" accept="image/*" ngModel  #photoRef="ngModel" required/>
                                          <div *ngIf="photoRef.invalid && photoRef.touched">
                                                 <span class="label label-danger" *ngIf="photoRef.errors.required">
                                                             Please Upload Photo
@@ -116,7 +118,5 @@
                     </div>
                 </div>
             </form>
-          
-    
         </div>
      </div>

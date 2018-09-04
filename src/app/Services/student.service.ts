@@ -1,22 +1,24 @@
 import {  Injectable } from '@angular/core';
-import { Http,Response, RequestMethod, RequestOptions} from "@angular/http";
+import { Response} from "@angular/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import {Student} from '../model/student';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { AppConstant } from '../constant/app.constant';
+
 
 @Injectable()
 export class StudentService 
 {
-
-    constructor(private http:Http){}
+    constructor(private http:HttpClient){}
     
  getAll() : Observable<any>
  {
-   return  this.http.get('http://192.168.0.113:5000/notice').pipe(map((res:Response) => { return res.json();}));
+   return  this.http.get(AppConstant.studentUrl).pipe(map((res:Response) => { return res.json();}));
  }
  getBySerach(stringSerach:String):Observable<any>
  {
-    return  this.http.get('http://192.168.0.113:5000/notice')
+    return  this.http.get(AppConstant.studentUrl)
     .pipe(map((res:Response) => {
          var element = res.json() ;
           element = element.filter((result)=>{
@@ -25,4 +27,15 @@ export class StudentService
         }));
  }
 
+ //for student registration
+ create(student : Student) : Observable<any>{
+  
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
+  
+  return this.http.post(AppConstant.studentUrl,student,httpOptions);
+ }
 }

@@ -4,5 +4,5 @@ export class Student
     name : string ;
     age : number ;
     gender : string ;
-    classteacher_id : number ;
+    classteacher_id : string ;
 }
