@@ -1,2 +1,118 @@
+<div class="container">
+        <div class="col-lg-12 col-sm-12">
+            <div class="titleSize">
+                <h3>
+                    Student Information
+                </h3>
+            </div>
+        
+            <form #studentForm="ngForm" (ngSubmit)="onStudentFormSubmit(studentForm.value)" >
+                <div class="row"> 
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="name"><b>Name</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Student Name.." ngModel [value]="sName" #nameRef="ngModel" required>
+                            <div *ngIf="nameRef.invalid && nameRef.touched">
+                                <div *ngIf="nameRef.errors.required">
+                                    Please Enter Student Name
+                                </div>
+                            </div>
+                    </div>
+                    
+                </div>
+          
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2 col-xs-12"> 
+                        <label for="rollno"><b>Roll No</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input id="rollno" name="rollno" placeholder="Roll Number..."  class="form-control form-control-sm" ngModel [value]="sRollNo" #rollnoRef="ngModel" required>
+                        <div *ngIf="rollnoRef.invalid && rollnoRef.touched">
+                            <div *ngIf="rollnoRef.errors.required">
+                                Please Enter Roll Number
+                            </div>
+                        </div>
+                    </div>      
+                </div>
+    
+                <div class="row">
+                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                            <label for="age"><b>Age</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                            <input type="text" id="age" name="studAge" placeholder="Age..." class="form-control form-control-sm" ngModel [value]="sAge" #ageRef="ngModel" required>
+                            <div *ngIf="ageRef.invalid && ageRef.touched">
+                                <div *ngIf="ageRef.errors.required">
+                                    Please Enter Class
+                                </div>
+                            </div>
+                        </div>
+                        
+                </div>
 
-this is from student component
+                <div class="row radioButtonDiv">
+                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                            <label for="gender"><b>Gender</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <div class="row">
+                                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                                                Male
+                                        </div>
+                                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                                             <input type="radio" [(ngModel)] ="isMale"  name="options" name="Gender" value="1" ngModel checked>
+                                        </div> 
+
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                                                Female
+                                        </div>
+                                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                                          <input type="radio" [(ngModel)] = "isMale" name="options" name="Gender" value="2" ngModel >
+                                        </div>  
+                                </div>
+                               
+                               
+                        </div>
+                </div>
+
+                <div class="row">
+                                <div class="col-lg-2 col-sm-2 col-xs-12">
+                                    <label for="class"><b>Class</b></label>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <input type="text" id="class" name="studClass" placeholder="Class..." class="form-control form-control-sm" ngModel [value]="sClass" #classRef="ngModel" required>
+                                    <div *ngIf="classRef.invalid && classRef.touched">
+                                        <div *ngIf="classRef.errors.required">
+                                            Please Enter Class
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-sm-2 col-xs-12">
+                                                <label for="photo"><b>Photo</b></label>
+                                 </div>
+                                 <div class="col-lg-4 col-sm-4 col-xs-12">
+                                         <input type="file" name="photo" accept="image/*" ngModel [value]="sPhoto" #photoRef="ngModel" required/>
+                                         <div *ngIf="photoRef.invalid && nameRef.touched">
+                                                <div *ngIf="photoRef.errors.required">
+                                                            Please Upload Photo
+                                                </div>
+                                         </div>
+                                </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                        </div>
+                        <div class="col-lg-8 col-sm-8 col-xs-12">
+                    
+                        <button type="submit" value="Submit" [disabled]="studentForm.invalid">Submit</button>
+                    </div>
+                </div>
+            </form>
+          
+    
+        </div>
+     </div>

@@ -1,0 +1,84 @@
+<div class="container allPage">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4>Student Profile</h4>
+      <table class="table">
+         
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>{{student.name}}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>{{student.age}}</td>
+          </tr>
+          <tr>
+            <td>Roll No.</td>
+            <td>{{student.rollno}}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{student.gender}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-lg-3">
+      <img src="../../assets/Vuejs2.png" class="img-profile">
+    </div>
+    <div class="col-lg-5 margin"> 
+      <div class="row">
+          <h4>Student Skills</h4>
+      <table class="table">
+   
+          <tbody>
+            <tr>
+              <td>Communication</td>
+              <td>
+                  <div class="progress progressBar">
+                      <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
+                      {{sre}}%
+                     </div>
+                    </div> 
+              </td>
+              <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
+            </tr>
+            <tr>
+              <td>Creativity</td>
+              <td><div class="progress progressBar">
+                  <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
+                  {{sre}}%
+                 </div>
+                </div> </td>
+                <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>  
+            </tr>
+            <tr>
+              <td>Group Activity</td>
+              <td><div class="progress progressBar">
+                  <div class="progress-bar "  role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
+                  {{sre}}%
+                 </div>
+                </div> </td>
+              <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
+            </tr>
+            <tr>
+              <td>Physical Activity</td>
+              <td><div class="progress progressBar">
+                  <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
+                  {{sre}}%
+                 </div>
+                </div> </td>
+                <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
+            </tr>
+          </tbody>
+        </table>
+    
+    </div>
+  </div>
+  <div>
+
+  </div>
+</div>

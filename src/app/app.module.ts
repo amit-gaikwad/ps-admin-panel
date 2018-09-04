@@ -12,6 +12,16 @@ import { PieChartComponent } from './pichart/piechart.-component';
 import{ FormsModule} from '@angular/forms';
 import { ChartModule} from 'angular-highcharts';
 import { ChartsComponent } from './charts/charts.component';
+import { NoticePostComponent} from './notice-post/notice-post.component';
+import { NoticeDisplayCompnent } from "./notice-display/notice-display.component";
+import { NoticeService } from "./Services/notice.service";
+import { HttpModule} from "@angular/http";
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { StudentInfoComponent } from '../app/student-info/student-info.component'
+import { StudentListComponent } from '../app/student-list/student-list.component';
+import { StudentService } from './Services/student.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,15 +31,23 @@ import { ChartsComponent } from './charts/charts.component';
     SidebarComponent,
     PieChartComponent,
     BarChartComponent,
-    ChartsComponent
+    ChartsComponent,
+    NoticePostComponent,
+    NoticeDisplayCompnent,
+    SafeUrlPipe,
+    StudentInfoComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRouting,
-    ChartModule
+    ChartModule,
+    HttpModule,
+    NgxPaginationModule,
+   
   ],
-  providers: [],
+  providers: [ NoticeService,StudentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

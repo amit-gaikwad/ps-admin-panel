@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="col-lg-12 col-sm-12">
+        <div class="titleSize">
+            <h3>
+                Create Notice
+            </h3>
+        </div>
+    
+        <form #noticeForm="ngForm" (ngSubmit)="onNoticeFormSubmit(noticeForm.value)" >
+            <div class="row"> 
+                <div class="col-lg-2 col-sm-2 col-xs-12">
+                    <label for="title"><b>Title</b></label>
+                </div>
+                <div class="col-lg-8 col-sm-8 col-xs-12">
+                    <input type="text" id="title" name="title" class="form-control form-control-sm" placeholder="Notice title.." ngModel [value]="nTitle" #titleRef="ngModel" required>
+                        <div *ngIf="titleRef.invalid && titleRef.touched">
+                            <div *ngIf="titleRef.errors.required">
+                                Please Enter Title
+                            </div>
+                        </div>
+                </div>
+            </div>
+      
+            <div class="row">
+                <div class="col-lg-2 col-sm-2 col-xs-12"> 
+                    <label for="description"><b>Description</b></label>
+                </div>
+                <div class="col-lg-8 col-sm-8 col-xs-12">
+                    <textarea id="description" name="description" placeholder="Notice description..." class="textAreaSize" ngModel [value]="nDescription" #descRef="ngModel" required></textarea>
+                    <div *ngIf="descRef.invalid && descRef.touched">
+                        <div *ngIf="descRef.errors.required">
+                            Please Enter Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="date"><b>Class</b></label>
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-xs-12">
+                        <input type="text" id="class" name="noticeClass" placeholder="Class.." class="form-control form-control-sm" ngModel [value]="nClass" #classRef="ngModel" required>
+                        <div *ngIf="classRef.invalid && classRef.touched">
+                            <div *ngIf="classRef.errors.required">
+                                Please Enter Class
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-sm-2 col-xs-12">
+                    <label for="date"><b>Date</b></label>
+                </div>
+                <div class="col-lg-8 col-sm-8 col-xs-12">
+                    <input  id="date" name="noticeDate" placeholder="Notice date.." ngModel [value]="nDate" #dateRef="ngModel" required>
+                    <div *ngIf="dateRef.invalid && dateRef.touched">
+                        <div *ngIf="dateRef.errors.required">
+                            Please Enter Date
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-xs-12">
+                
+                    <button type="submit" value="Submit" [disabled]="noticeForm.invalid">Submit</button>
+                </div>
+            </div>
+        </form>
+      
+
+    </div>
+ </div>
