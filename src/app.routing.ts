@@ -6,10 +6,10 @@ import {  StudentComponent } from './app/student/student.component';
 import { ChartsComponent } from './app/charts/charts.component';
 import { NoticePostComponent} from './app/notice-post/notice-post.component';
 import { NoticeDisplayCompnent } from "./app/notice-display/notice-display.component";
-
+import { StudentListComponent } from './app/student-list/student-list.component';
   const routes : Routes = [ 
    
-    { path : 'Student' , component : StudentComponent },
+    { path : 'Student' , component : StudentListComponent },
     { path : '' ,component : ChartsComponent }, 
     { path : 'NoticePost', component : NoticePostComponent },
     { path : "NoticeDisplay", component: NoticeDisplayCompnent}
