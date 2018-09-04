@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {  RouterModule } from '@angular/router';
 import { StudentComponent } from './student/student.component';
-import { AppRouting,Components } from './../app.routing';
+import { AppRouting,Components } from '../app.routing';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -12,13 +12,11 @@ import { PieChartComponent } from './pichart/piechart.-component';
 import{ FormsModule} from '@angular/forms';
 import { ChartModule} from 'angular-highcharts';
 import { ChartsComponent } from './charts/charts.component';
-import { SchoolGallaryComponent } from './school-gallary/school-gallary.component';
+import { SchoolGalleryComponent } from './school-gallary/school-gallary.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadService } from './school-gallary/uploadgallary.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
-import { GallaryService } from './school-gallary-service/gallaryservice';
+import { GallaryService } from './service/gallary.service';
 import { HttpModule } from '@angular/http';
 @NgModule({
   declarations: [
@@ -30,7 +28,7 @@ import { HttpModule } from '@angular/http';
     PieChartComponent,
     BarChartComponent,
     ChartsComponent,
-    SchoolGallaryComponent,
+    SchoolGalleryComponent,
     FileSelectDirective,
     
   ],

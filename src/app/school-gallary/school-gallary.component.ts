@@ -1,59 +1,60 @@
 import { Component } from '@angular/core';
-import { GallaryService } from '../school-gallary-service/gallaryservice';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute,Params } from "@angular/router"
+import { GallaryService } from'../service/gallary.service';
 
-
-
-
+declare var AWS: any;
 
 @Component({
-  selector: 'page-file-upload',
+  selector: 'app-school-gallery',
   templateUrl: './school-gallary.component.html',
   styleUrls: ['./school-gallary.component.css']
-  
 })
-export class SchoolGallaryComponent {
-  
-  images = new Array() ;
-  myFiles:string [] = [];
-  sMsg:string = '';
-  
+export class SchoolGalleryComponent{
 
-  constructor(private galServices:GallaryService,private httpService: HttpClient){
-    galServices.getAll().subscribe((data)=>{
-      this.images = data;
-      console.log("gthis is array",data);
-    })
+  selectedImageId:number;
+    eImage=[];
+    nTitle:string;
+    nDescription:string;
+    nDate:Date;
+
+
+  selectedFiles: FileList;
+  eProg = [];
+  SelectedProgId : number;
+
+  constructor(private activatedRoute:ActivatedRoute, private noticeService:GallaryService )
+  {
+     activatedRoute.params.subscribe((params:Params)=>{
+          this.selectedImageId=Number(params["nId"])
+      });
+      console.log("This is ID", this.selectedImageId);
+
+      GallaryService.getAll().subscribe
+      (
+      (data)=>
+              {
+              this.eImage=data;
+              var element=this.eImage.find((item)=>{
+                  return (item.id==this.selectedImageId);
+              })
+              console.log(element);
+              if(this.selectedImageId!=0 && this.selectedImageId!=null){
+                  this.nTitle=element.title;
+                  this.nDescription=element.description;
+                  this.nDate=element.noticeDate;
+              }
+        }
+      )
+    }
+    
+  onImageFormSubmit(value : any)
+  { 
+    console.log(value);
+    alert("Sucessfully uploaded");
+  }
+  
   }
 
-    getFileDetails (e) {
-      //console.log (e.target.files);
-      for (var i = 0; i < e.target.files.length; i++) { 
-        this.myFiles.push(e.target.files[i]);
-      }
-    }
-  
-    uploadFiles () {
-      const frmData = new FormData();
-      
-      for (var i = 0; i < this.myFiles.length; i++) { 
-        frmData.append("fileUpload", this.myFiles[i]);
-      }
-      
-      this.httpService.post('http://localhost:60505/api/fileupload/', frmData).subscribe(
-        data => {
-          // SHOW A MESSAGE RECEIVED FROM THE WEB API.
-       //   this.sMsg = data as string;
-          console.log (this.sMsg);
-        },
-        (err: HttpErrorResponse) => {
-          console.log (err.message);    // SHOW ERRORS IF ANY.
-        }
-      );
-    }
+ 
 
-  
 
-  
-  
-}

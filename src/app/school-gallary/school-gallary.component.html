@@ -1,28 +1,76 @@
-<!-- page-file-upload.component.html -->
-<div class="school_gallery">
 <div class="container">
-  <div class="col-md-12">
-    <h2>School Gallery</h2>
-    <div class="col-md-12 imgUpload">
-     <h3>Imgaes Upload</h3> 
-      <input type="file" id="file" multiple 
-       (change)="getFileDetails($event)">
-    </div>
-    <div class="col-md-12 imgDescription">    
-     <h3>Description</h3>
-        <textarea name="message" rows="3" cols="60">Image Description</textarea>
-    </div>
-    <div class="col-md-12 btn">
-      <button (click)="uploadFiles()">Upload</button>
-      <button (click)="uploadFiles()">Delete</button>
-    </div>
-      <div class="imgFormat"> 
-        <div  *ngFor= "let item of images; let i = index;" >
- 
- 
-          <img [src]="item.img_url" alt="Nature" />
-       </div>
-        </div>
-   </div>
-  </div>  
+      <div class="col-lg-12 col-sm-12">
+          <div class="titleSize">
+              <h3>
+                  Image Information
+              </h3>
+          </div>
+   <form #imageForm="ngForm" (ngSubmit)="onImageFormSubmit(imageForm.value)" >
+      <div class="row"> 
+          <div class="col-lg-2 col-sm-2 col-xs-12">
+              <label for="title"><b>Title</b></label>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-xs-12">
+              <input type="text" id="title" name="title" class="form-control form-control-sm" placeholder="Image title.." ngModel [value]="nTitle" #titleRef="ngModel" required>
+                  <div *ngIf="titleRef.invalid && titleRef.touched">
+                      <div *ngIf="titleRef.errors.required">
+                          Please Enter Title
+                      </div>
+                  </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-2 col-sm-2 col-xs-12"> 
+              <label for="description"><b>Description</b></label>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-xs-12">
+              <textarea id="description" name="description" placeholder="Image description..."  ngModel [value]="nDescription" #descRef="ngModel" required></textarea>
+              <div *ngIf="descRef.invalid && descRef.touched">
+                  <div *ngIf="descRef.errors.required">
+                      Please Enter Description
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-2 col-sm-2 col-xs-12">
+              <label for="date"><b>Date</b></label>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-xs-12">
+              <input type="date" id="date" name="imageDate" placeholder="image date.." ngModel [value]="nDate" #dateRef="ngModel" required>
+              <div *ngIf="dateRef.invalid && dateRef.touched">
+                  <div *ngIf="dateRef.errors.required">
+                      Please Enter Date
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-lg-2 col-sm-2 col-xs-12">
+              <label for="upload"><b>Upload</b></label>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-xs-12">
+              <input type="file" id="imguploaded"  (click)="onUpload($event)"/>
+              
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-2 col-sm-2 col-xs-12">
+          </div>
+          <div class="col-lg-2 col-sm-2 col-xs-12">
+              <button (click)="onUpload($event)">Upload</button>
+         </div> 
+         <div class="col-lg-2 col-sm-2 col-xs-12">
+            <button type="submit" value="Submit" [disabled]="imageForm.invalid">Submit</button>
+         </div>
+      </div>
+       
+  </form>
+
+
 </div>
+</div> 
+
