@@ -19,7 +19,8 @@ import { HttpModule} from "@angular/http";
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { StudentInfoComponent } from '../app/student-info/student-info.component'
-
+import { StudentListComponent } from '../app/student-list/student-list.component';
+import { StudentService } from './Services/student.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { StudentInfoComponent } from '../app/student-info/student-info.component
     NoticePostComponent,
     NoticeDisplayCompnent,
     SafeUrlPipe,
-    StudentInfoComponent
+    StudentInfoComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { StudentInfoComponent } from '../app/student-info/student-info.component
     NgxPaginationModule,
    
   ],
-  providers: [ NoticeService ],
+  providers: [ NoticeService,StudentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
