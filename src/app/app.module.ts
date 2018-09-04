@@ -18,6 +18,7 @@ import { NoticeService } from "./Services/notice.service";
 import { HttpModule} from "@angular/http";
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { NgxPaginationModule} from 'ngx-pagination';
+import { StudentInfoComponent } from '../app/student-info/student-info.component'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NgxPaginationModule} from 'ngx-pagination';
     ChartsComponent,
     NoticePostComponent,
     NoticeDisplayCompnent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    StudentInfoComponent
   ],
   imports: [
     BrowserModule,

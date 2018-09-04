@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 
 
 @Injectable()
-export class NoticeService{
+export class NoticeService{    
 pdfDetails = [];
 private jsonUrl="";
 constructor(private http:Http){
