@@ -9,8 +9,16 @@ import { Student } from './student';
 export class StudentInfoComponent implements OnInit {
 
   constructor( private studentService : StudentService ) { }
- private student : Student ;
- private sre : number = 50 ;
+  student : Student ;
+  creativity=50;
+  communication=70;
+  groupActivity=80;
+  physicalActivity=60;
+  educationActivity=70;
+
+
+
+
   ngOnInit() { 
     this.studentService.getStudent('assets/student.json').subscribe( data => {this.student = data[0] ; } );
   }

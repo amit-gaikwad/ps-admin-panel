@@ -9,10 +9,7 @@
 {
  margin  : 10 px;
 }
-.text-box-width
-{
-    
-}
+
 .progressBar
 {
     height: 2rem;
@@ -25,4 +22,16 @@
 }
 td{
     text-align: left;
+}
+.studContainer{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.studImg{
+    width: 180px;
+    height: 180px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
+import {StudentService} from '../Services/student.service';
+import {Student} from '../model/student'
 
 @Component({
   selector: 'app-student',
@@ -11,12 +13,14 @@ export class StudentComponent implements OnInit {
   sName = "";
   sRollNo = "";
   sAge = "";
-  isMale : boolean = true;
+  sClass="";
+  gender = "male";
+  classes = ["0-2 Years","2-3 Years","3+ Years"];
 
-  constructor( ) { }
+  constructor(private studentService : StudentService ) { }
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   onlyDecimalNumberKey(event) {
     let charCode = (event.which) ? event.which : event.keyCode;
     if (charCode != 46 && charCode > 31
@@ -24,8 +28,24 @@ export class StudentComponent implements OnInit {
         return false;
     return true;
 }
-submit(val : any)
+
+onStudentFormSubmit(val : any)
 { 
-  console.log(val);
+  var student = new Student();
+  student.name = val.name;
+  student.age = val.age;
+  student.gender = val.gender;
+  student.rollno = val.rollno
+  student.classteacher_id = "1"; //will be change later
+  this.studentService.create(student).subscribe(
+      student => {
+        console.log("Student added successfully");
+      },
+      error => {
+        console.log(error);
+      }
+  );
+
 }
+
 }

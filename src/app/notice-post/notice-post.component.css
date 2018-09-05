@@ -20,6 +20,9 @@ label {
     display: inline-block;
     font-size: large;
 }
+.label-danger {
+    background-color: #d9534f;
+}
 
 input[type=submit] {
     background-color: #4CAF50;

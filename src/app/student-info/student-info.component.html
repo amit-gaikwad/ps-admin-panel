@@ -1,84 +1,134 @@
-<div class="container allPage">
-  <div class="row">
-    <div class="col-lg-4">
-      <h4>Student Profile</h4>
-      <table class="table">
-         
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td>{{student.name}}</td>
-          </tr>
-          <tr>
-            <td>Age</td>
-            <td>{{student.age}}</td>
-          </tr>
-          <tr>
-            <td>Roll No.</td>
-            <td>{{student.rollno}}</td>
-          </tr>
-          <tr>
-            <td>Gender</td>
-            <td>{{student.gender}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
-    <div class="col-lg-3">
-      <img src="../../assets/Vuejs2.png" class="img-profile">
-    </div>
-    <div class="col-lg-5 margin"> 
-      <div class="row">
-          <h4>Student Skills</h4>
-      <table class="table">
-   
-          <tbody>
-            <tr>
-              <td>Communication</td>
-              <td>
-                  <div class="progress progressBar">
-                      <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
-                      {{sre}}%
-                     </div>
-                    </div> 
-              </td>
-              <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
-            </tr>
-            <tr>
-              <td>Creativity</td>
-              <td><div class="progress progressBar">
-                  <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
-                  {{sre}}%
-                 </div>
-                </div> </td>
-                <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>  
-            </tr>
-            <tr>
-              <td>Group Activity</td>
-              <td><div class="progress progressBar">
-                  <div class="progress-bar "  role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
-                  {{sre}}%
-                 </div>
-                </div> </td>
-              <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
-            </tr>
-            <tr>
-              <td>Physical Activity</td>
-              <td><div class="progress progressBar">
-                  <div class="progress-bar " role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [style.width]="sre+'%'">
-                  {{sre}}%
-                 </div>
-                </div> </td>
-                <td> <input type="number" max="100" name="per" [(ngModel)]="sre" style="width:50px;" /> </td>
-            </tr>
-          </tbody>
-        </table>
+<div class="container">
+  <div class="studContainer">
     
+    
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <div class="titleSize">
+                <h3>
+                    Student Information.
+                </h3>
+            </div>
+        </div>
     </div>
-  </div>
-  <div>
+    <hr>
+    <div>
+        
+            <div class="col-lg-12 col-sm-12">
+                  <img src="http://localhost:4200/assets/user.png" class="studImg">
+            </div>
+       
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+          
+          <div class="row">
+            <div class="col-lg-2 col-sm-2 col-xs-12">
+                <label for="name"><b>Name</b></label>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+                {{student.name}}
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-2 col-sm-2 col-xs-12">
+                  <label for="age"><b>Age</b></label>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                  {{student.age}}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-2 col-sm-2 col-xs-12">
+                  <label for="rollno"><b>Roll No.</b></label>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                  {{student.rollno}}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-2 col-sm-2 col-xs-12">
+                  <label for="gender"><b>Gender</b></label>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                  {{student.gender}}
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+          <div>
+            <div>
+              Communication
+            </div>
+            <div class="progress">
+               <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                          aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                          <span>{{sre}}%</span>
+                </div>
+           </div>
+          </div>  
+          <div>
+              <div>
+                  Creativity
+              </div>
+              <div class="progress">
+                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="100" [style.width]="creativity+'%'">
+                            <span>{{creativity}}%</span>
+                  </div>
+             </div> 
+          </div>  
+          <div>
+              <div>
+                  Group Activity
+              </div>
+              <div class="progress">
+                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="100" [style.width]="groupActivity+'%'">
+                            <span>{{groupActivity}}%</span>
+                  </div>
+             </div> 
+          </div>  
+          <div>
+              <div>
+               Physical Activity
+              </div>
+              <div class="progress">
+                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="100" [style.width]="physicalActivity+'%'">
+                            <span>{{physicalActivity}}%</span>
+                  </div>
+             </div> 
+          </div>  
+          <div>
+              <div>
+               Education Activity
+              </div>
+              <div class="progress">
+                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="100" [style.width]="educationActivity+'%'">
+                            <span>{{educationActivity}}%</span>
+                  </div>
+             </div> 
+        </div>  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
   </div>
 </div>

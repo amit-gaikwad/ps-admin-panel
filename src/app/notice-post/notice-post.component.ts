@@ -15,9 +15,7 @@ export class NoticePostComponent{
     nDescription:string;
     nDate:Date;
     nClass:string;
-    
-     
-
+    classes = ["0-2 Years","2-3 Years","3+ Years"];
     constructor(private activatedRoute:ActivatedRoute, private noticeService:NoticeService )
     {
        activatedRoute.params.subscribe((params:Params)=>{

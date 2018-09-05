@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {  RouterModule } from '@angular/router';
 import { StudentComponent } from './student/student.component';
-import { AppRouting,Components } from './../app.routing';
+import { AppRouting,Components } from '../app.routing';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -18,7 +18,16 @@ import { NoticeService } from "./Services/notice.service";
 import { HttpModule} from "@angular/http";
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { StudentInfoComponent } from '../app/student-info/student-info.component'
+import { StudentInfoComponent } from './student-info/student-info.component'
+import {ProgramService} from './Services/programe.service';
+import { GalleryService } from './Services/gallery.service';
+import { ProgrmmeComponent} from './progrmme/progrmme.component';
+import { SchoolGalleryComponent } from './school-gallery/school-gallery.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentListComponent } from '../app/student-list/student-list.component';
+import { StudentService } from '../app/Services/student.service';
+import { LoginComponent } from '../app/login/login.component';
+
 
 
 @NgModule({
@@ -34,7 +43,11 @@ import { StudentInfoComponent } from '../app/student-info/student-info.component
     NoticePostComponent,
     NoticeDisplayCompnent,
     SafeUrlPipe,
-    StudentInfoComponent
+    StudentInfoComponent,
+    ProgrmmeComponent,
+    SchoolGalleryComponent,
+    StudentListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +56,11 @@ import { StudentInfoComponent } from '../app/student-info/student-info.component
     ChartModule,
     HttpModule,
     NgxPaginationModule,
+    HttpClientModule
+    
    
   ],
-  providers: [ NoticeService ],
+  providers: [ NoticeService, ProgramService, GalleryService, StudentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
