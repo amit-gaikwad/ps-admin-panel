@@ -136,3 +136,16 @@ imgUpload,.imgDescription {
   .label-danger {
     background-color: #d9534f;
 }
+.progDisp{
+    padding-top: 40px;
+    border:3px solid #ddd;
+    padding: 20px;
+}
+.proDisp2 {
+    font-style: Serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.container{
+    margin-top: 30px;
+}

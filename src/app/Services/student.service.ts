@@ -14,11 +14,13 @@ export class StudentService
     
  getAll() : Observable<any>
  {
-   return  this.http.get(AppConstant.studentUrl).pipe(map((res:Response) => { return res.json();}));
+   
+   //return  this.http.get(AppConstant.studentUrl).pipe(map((res:Response) => { return res.json();}));
+   return this.http.get("http://localhost:4200/assets/student.json").pipe((map((res:Response) => {return res.json();})));
  }
  getBySerach(stringSerach:String):Observable<any>
  {
-    return  this.http.get(AppConstant.studentUrl)
+    return  this.http.get("http://localhost:4200/assets/student.json")
     .pipe(map((res:Response) => {
          var element = res.json() ;
           element = element.filter((result)=>{

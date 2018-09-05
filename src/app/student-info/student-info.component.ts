@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from './student.service';
-import { Student } from './student';
+import { StudentService } from '../Services/student.service';
+import { Student } from '../model/student';
 @Component({
   selector: 'app-student-info',
   templateUrl: './student-info.component.html',
@@ -20,6 +20,6 @@ export class StudentInfoComponent implements OnInit {
 
 
   ngOnInit() { 
-    this.studentService.getStudent('assets/student.json').subscribe( data => {this.student = data[0] ; } );
+    this.studentService.getAll().subscribe( data => {this.student = data[0] ; } );
   }
 }

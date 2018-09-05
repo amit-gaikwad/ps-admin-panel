@@ -7,17 +7,13 @@ import { StudentService } from '../Services/student.service';
 })
 export class StudentListComponent implements OnInit {
  
-  StudentList = [];
+  studentList = [];
   searchString = "";
   constructor( private studentService : StudentService) { }
  
   ngOnInit() {
-    this.studentService.getAll().subscribe(data => { this.StudentList = data; console.log(data)});
-  }
-  show(i:any)
-  {
-    console.log(i);
+    this.studentService.getAll().subscribe(data => { this.studentList = data;});
+   // this.studentService.getAll().subscribe( data => {this.student = data[0] ; } );
   }
   
- 
 }

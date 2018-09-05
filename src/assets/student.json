@@ -1,1 +1,4 @@
-[{ "rollno":1,"name":"xyz","age":25,"gender":"male","classteacher_id":1}]
+[{ "rollno":1,"name":"xyz","age":25,"gender":"male","classteacher_id":1},
+ { "rollno":2,"name":"xyz","age":25,"gender":"male","classteacher_id":1},
+ { "rollno":3,"name":"xyz","age":25,"gender":"male","classteacher_id":1}
+]
