@@ -4,5 +4,6 @@ export class Student
     name : string ;
     age : number ;
     gender : string ;
+    photourl : string;
     classteacher_id : string ;
 }

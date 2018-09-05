@@ -12,8 +12,6 @@ import { StudentListComponent } from './app/student-list/student-list.component'
 import { StudentInfoComponent } from './app/student-info/student-info.component';
 import { LoginComponent} from './app/login/login.component';
 
-
-
   const routes : Routes = [ 
    
     { path : 'Student' , component : StudentComponent },

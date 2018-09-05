@@ -61,6 +61,8 @@ import { LoginComponent } from '../app/login/login.component';
    
   ],
   providers: [ NoticeService, ProgramService, GalleryService, StudentService ],
+   
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
