@@ -8,18 +8,22 @@ import { Student } from '../model/student';
 })
 export class StudentInfoComponent implements OnInit {
 
-  constructor( private studentService : StudentService ) { }
   student : Student ;
   creativity=50;
   communication=70;
   groupActivity=80;
   physicalActivity=60;
   educationActivity=70;
-
-
+  
+  constructor( private studentService : StudentService ) { }
+  
 
 
   ngOnInit() { 
-    this.studentService.getAll().subscribe( data => {this.student = data[0] ; } );
+    this.studentService.getAll().subscribe( data => {this.student = data[0];
+      this.student.photourl = "https://s3-us-west-2.amazonaws.com/preschool-angular/laptop3.jpg";
+      console.log(this.student.photourl);
+    } );
+    
   }
 }
