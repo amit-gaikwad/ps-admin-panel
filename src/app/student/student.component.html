@@ -96,25 +96,32 @@
                                     </div>
 
                                 </div>
-                                <div class="col-lg-2 col-sm-2 col-xs-12">
-                                                <label for="photo"><b>Photo</b></label>
-                                 </div>
-                                 <div class="col-lg-4 col-sm-4 col-xs-12">
-                                         <input type="file" name="photo" accept="image/*" ngModel  #photoRef="ngModel" required/>
-                                         <div *ngIf="photoRef.invalid && photoRef.touched">
-                                                <span class="label label-danger" *ngIf="photoRef.errors.required">
-                                                            Please Upload Photo
-                                                </span>
-                                         </div>
                                 </div>
-                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                                        <label for="photo"><b>Photo</b></label>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                        <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+                                        <div *ngIf="photoRef.invalid && photoRef.touched">
+                                            <span class="label label-danger" *ngIf="photoRef.errors.required">
+                                                Please Upload Photo
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <button type="button" style="width: max-content" [disabled]="studentForm.invalid " value="Upload" (click)="onUpload($event)" >Upload</button>
+                            </div>
+                            
+                                </div>
 
                 <div class="row">
                         <div class="col-lg-2 col-sm-2 col-xs-12">
                         </div>
                         <div class="col-lg-8 col-sm-8 col-xs-12">
                     
-                        <button type="submit" value="Submit" [disabled]="studentForm.invalid">Submit</button>
+                        <button type="submit" value="Submit" [disabled]="isUploaded">Submit</button>
                     </div>
                 </div>
             </form>
