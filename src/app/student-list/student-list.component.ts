@@ -9,11 +9,27 @@ export class StudentListComponent implements OnInit {
  
   studentList = [];
   searchString = "";
-  constructor( private studentService : StudentService) { }
+  constructor( private studentService : StudentService) { 
+     }
  
   ngOnInit() {
-    this.studentService.getAll().subscribe(data => { this.studentList = data;});
-   // this.studentService.getAll().subscribe( data => {this.student = data[0] ; } );
+    this.studentService.getAll().subscribe(data => { 
+       this.studentList = data;
+    });
+  }
+  getBySerach(){
+    this.studentService.getAll().subscribe(data =>{
+        this.studentList = data;
+        if(this.searchString){
+          this.studentList = this.studentList.filter(item =>{
+            return (item.name.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+          });
+        }else{
+          this.studentList = data;
+
+        }
+    }
+    );
   }
   
 }
