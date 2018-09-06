@@ -1,21 +1,8 @@
-.file-field.big .file-path-wrapper {
-    height: 3.2rem; }
-.progDisp{
-    padding-top: 40px;
-    border:3px solid #ddd;
-    padding: 20px;
-}
-.proDisp2 {
-    font-style: Serif;
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-.container{
-    margin-top: 30px;
-}
-
 imgUpload,.imgDescription {
     margin: 0 0 20px 0;  
+  }
+  .row{
+    margin-top: 15px;
   }
   .school_gallery h2 {
    font-size: 30px;
@@ -50,22 +37,14 @@ imgUpload,.imgDescription {
   }
   .titleSize{
       padding-bottom: 50px;
-      
-      
   }
   input[type=text], select, textarea {
       width: 100%;
+      padding: 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
       resize: vertical;
   }
-  
-  label {
-      padding-bottom: 12px;
-      display: inline-block;
-      font-size: large;
-  }
-  
   input[type=submit] {
       background-color: #4CAF50;
       color: white;
@@ -125,14 +104,11 @@ imgUpload,.imgDescription {
       margin-left: auto;
   }
 
-  .upbutton {
-    
+  button {
+    border: 1px solid #0066cc;
     background-color: #00b8a9;
     color: #ffffff;
-    padding: 0px 5px;
-    width: 70%;
-    height: 70%;
-    
+    padding: 5px 10px;
   }
   
   upbutton:hover {
@@ -148,31 +124,32 @@ imgUpload,.imgDescription {
     background-color: #cccccc;
     color: #666666;
   }
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 10px;
-    
-  }
-  
-  /* Create two equal columns that sits next to each other */
-  .column {
-    flex: 50%;
-    padding: 0 10px;
-    
-  }
-  
-  .column img {
-    margin-top: 15px;
-    vertical-align: middle;
-    width: 180px;
-  }
-  .progContainer{
-      padding: 50px 10px 50px 20px;
-      border: solid lightgray;
-      overflow: scroll;
-      margin-bottom: 50px;
-  }
   .label-danger {
     background-color: #d9534f;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.progDisp{
+    padding-top: 40px;
+    border:3px solid #ddd;
+    padding: 20px;
+}
+.proDisp2 {
+    font-style: Serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.container{
+    margin-top: 30px;
 }

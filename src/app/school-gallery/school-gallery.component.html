@@ -1,26 +1,30 @@
 
 <div class="container">
+        <div class="loading" *ngIf="isUploading || isSubmiting">Loading&#8230;</div>
     <div class="progDisp">
-     
-      
-      <form #galleryForm="ngForm" (ngSubmit)="onGallerySubmit(galleryForm.value)" >
+      <form #galleryForm="ngForm" (ngSubmit)="onSubmit(galleryForm)" >
         <div class="proDisp2"> Upload Images</div>
         <hr>
         <div class="row">
-            <div class="col-lg-2 col-sm-2 col-xs-12">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
                 <label for="Img Upload"><b>Image Upload</b></label>
             </div>
             
                 <div class="col-lg-4 col-sm-4 col-xs-12">
-                    <input type="file" class="" id="file-chooser" (change)="selectFile($event)">
-                </div>
+                        <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+                        <div *ngIf="photoRef.invalid && photoRef.touched">
+                            <span class="label label-danger" *ngIf="photoRef.errors.required">
+                                Please Upload Photo
+                            </span>
+                        </div>
+                      </div>
              
-            <div class="col-lg-2 col-sm-2 col-xs-12">
-                <button type="button" class="upbutton" id="upload-button" (click)="onUpload($event)">Upload</button>
-            </div> 
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <button type="button" [disabled]="galleryForm.invalid" class="upbutton" id="upload-button" (click)="onUpload($event)">Upload</button>
+            </div>  
           </div>
           <div class="row">
-              <div class="col-lg-2 col-sm-2 col-xs-12">
+              <div class="col-lg-3 col-sm-3 col-xs-12">
                   <label for="Category"><b>Select Category</b></label>
               </div>
               <div class="col-lg-4 col-sm-4 col-xs-12">
@@ -37,43 +41,42 @@
 
 
           </div>
-          <div class="col-lg-4 col-sm-4 col-xs-12">
-                <div class="row">
-                        <div class="col-lg-2 col-sm-2 col-xs-12">
-                                Parents only
-                        </div>
-                        <div class="col-lg-2 col-sm-2 col-xs-12">
-                             <input type="radio" [(ngModel)] ="isPrivate" name="gender" value="male" ngModel >
-                        </div> 
+          <div class="row" style="margin-bottom: 20px">
+                <div class="col-lg-3 col-sm-3 col-xs-12">
+                    <label for="gender"><b>Privacy</b></label>
                 </div>
-                <div class="row">
-                        <div class="col-lg-2 col-sm-2 col-xs-12">
-                                Public
+                <div class="col-lg-9 col-sm-4 col-xs-12">
+                        <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                        Public
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                     <input type="radio" [(ngModel)] ="isPrivate" name="privacy" value="public" ngModel >
+                                </div> 
                         </div>
-                        <div class="col-lg-2 col-sm-2 col-xs-12">
-                          <input type="radio" [(ngModel)] = "gender" name="gender" value="female" ngModel >
-                        </div>  
+                        <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                        Parent Only
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                  <input type="radio" [(ngModel)] = "isPrivate" name="privacy" value="private" ngModel >
+                                </div>  
+                        </div>
                 </div>
         </div>
-
-
-
-
-
-
           <div class="row">
               <div class="col-lg-2 col-sm-2 col-xs-12"></div>
               <div class="col-lg-4 col-sm-4 col-xs-12">
-                  <button type="submit" value="Submit" [disabled]="galleryForm.invalid" class="Submitbutton">Submit</button>
+                  <button type="submit" value="Submit" [disabled]="isNotUploaded"  class="Submitbutton">Submit</button>
               </div>
           </div>
       </form>
    </div>
-
-
    <br>
    <div class="progContainer">
-     Images
+     <h2>
+         Images
+     </h2>
      <div class="row">
        <div *ngFor="let item of eProg">
          <div class="column">

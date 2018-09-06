@@ -4,30 +4,29 @@ import { NgForm } from '@angular/forms';
 import { Event } from '../model/event';
 declare var AWS: any;
 
-
 @Component({
   selector: 'app-progrmme',
-  templateUrl: './progrmme.component.html',
-  styleUrls: ['./progrmme.component.css']
+  templateUrl: './event.component.html',
+  styleUrls: ['./event.component.css','../../assets/css/loading-animation.css']
 })
-
-export class ProgrmmeComponent {
+export class EventComponent {
 
   selectedFiles: FileList;
   eProg = [];
   SelectedProgId: number;
   isNotUploaded = true;
   isUploading = false;
-  photourl = ''; 
+  isSubmiting = false;
+  pdfUrl = ''; 
 
   constructor(private progService: ProgramService) {
 
-      progService.getAll().subscribe(
-        (data) => {
-          console.log(data);
-          this.eProg = data;
-        }
-     );
+    //   progService.getAll().subscribe(
+    //     (data) => {
+    //       console.log(data);
+    //       this.eProg = data;
+    //     }
+    //  );
   }
 
 
@@ -36,7 +35,7 @@ export class ProgrmmeComponent {
   }
 
   onUpload (value: any) {
-     debugger
+     
     console.log('up load fun ', value);
     this.isUploading = true ;
     const file = this.selectedFiles.item(0);
@@ -60,9 +59,10 @@ export class ProgrmmeComponent {
                 console.log('Error uploading data: ', err);
                 this.isUploading = false;
             } else {
-              console.log('Successfully uploaded data');
+              this.isNotUploaded = false;
               this.isUploading = false;
-              this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
+
+              this.pdfUrl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
             }
         });
     } else {
@@ -71,21 +71,21 @@ export class ProgrmmeComponent {
     }
   }
   onProgramSubmit(event:NgForm) {
-    console.log(event.value);
+    this.isSubmiting = true;
     const events = new Event();
     events.title = event.value.title ; 
     events.description =  event.value.description ;
     events.date = new Date();
-    events.imageurl =  this.photourl ;
-    console.log(events);
+    events.imgurl =  this.pdfUrl ;
     this.progService.create(events).subscribe(
       studentObj => {
-        console.log('Programme added successfully');
         this.isNotUploaded = true;
         event.reset();
+        this.isSubmiting = false;
       },
       error => {
         console.log(error);
+        this.isSubmiting = false;
       }
   );
   }

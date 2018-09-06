@@ -2,11 +2,12 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { NoticeService } from "../Services/notice.service";
 import { Notice } from '../model/notice';
+import { NgForm } from "@angular/forms";
 
 @Component({
     selector: "app-notice-post",
     templateUrl: "./notice-post.component.html",
-    styleUrls: ["./notice-post.component.css"]
+    styleUrls: ["./notice-post.component.css","../../assets/css/loading-animation.css"]
 })
 export class NoticePostComponent {
     selectedNoticeId: number;
@@ -16,6 +17,7 @@ export class NoticePostComponent {
     nDate: Date;
     nClass='';
     classes = ["0-2 Years", "2-3 Years", "3+ Years"];
+    isSubmiting = false;
     constructor(private activatedRoute: ActivatedRoute, private noticeService: NoticeService) {
         // activatedRoute.params.subscribe((params: Params) => {
         //     this.selectedNoticeId = Number(params["nId"])
@@ -44,19 +46,24 @@ export class NoticePostComponent {
         //     )
     }
 
-    onNoticeFormSubmit(value: any) {
-        console.log(value);
+    onNoticeFormSubmit(form: NgForm) {
+        this.isSubmiting = true;
+        console.log(form);
         var notice = new Notice();
-        notice.title = value.title;
-        notice.description =  value.description ;
+        notice.title = form.value.title;
+        notice.description =  form.value.description ;
         notice.date = new Date() ;
-        notice.class = value.class ;
+        notice.class = form.value.class ;
         this.noticeService.create(notice).subscribe(
             student => {
               console.log("Notice added successfully");
+              form.reset();
+              this.isSubmiting = false;
             },
             error => {
               console.log(error);
+              this.isSubmiting = false;
+
             }
         );
     }

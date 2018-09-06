@@ -1,6 +1,7 @@
 <div class="container">
+        <div class="loading" *ngIf="isSubmiting">Loading&#8230;</div>
     <div class="progDisp">
-        <form #noticeForm="ngForm" (ngSubmit)="onNoticeFormSubmit(noticeForm.value)" >
+        <form #noticeForm="ngForm" (ngSubmit)="onNoticeFormSubmit(noticeForm)" >
             <div class="proDisp2">Create Notice</div>
             <div class="row"> 
                 <div class="col-lg-2 col-sm-2 col-xs-12">

@@ -17,13 +17,14 @@ export class StudentComponent implements OnInit {
   sRollNo = '';
   sAge = '';
   sClass = '';
-  isNotUploaded = true;
   photourl = '';
   gender = 'male';
   classes = ['0-2 Years', '2-3 Years', '3+ Years'];
   selectedFiles: FileList;
   submitButton = '';
+  isNotUploaded = true;
   isUploading = false;
+  isSubmiting = false;
 
 
   constructor(private studentService: StudentService ) {
@@ -82,6 +83,7 @@ onUpload (event) {
   }
 
   onStudentFormSubmit(val: NgForm) {
+    this.isSubmiting = true;
     console.log(this.photourl);
     const student = new Student();
     
@@ -95,10 +97,12 @@ onUpload (event) {
       studentObj => {
         console.log('Student added successfully');
         val.reset();
+        this.isSubmiting = false;
         this.isNotUploaded = true;
       },
       error => {
         console.log(error);
+        this.isSubmiting = false;
       }
   );
 }

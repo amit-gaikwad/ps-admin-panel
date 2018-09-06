@@ -21,12 +21,12 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { StudentInfoComponent } from './student-info/student-info.component'
 import {ProgramService} from './Services/programe.service';
 import { GalleryService } from './Services/gallery.service';
-import { ProgrmmeComponent} from './progrmme/progrmme.component';
+import { EventComponent} from './event/event.component';
 import { SchoolGalleryComponent } from './school-gallery/school-gallery.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StudentListComponent } from '../app/student-list/student-list.component';
-import { StudentService } from '../app/Services/student.service';
-import { LoginComponent } from '../app/login/login.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { StudentService } from './Services/student.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -44,7 +44,7 @@ import { LoginComponent } from '../app/login/login.component';
     NoticeDisplayCompnent,
     SafeUrlPipe,
     StudentInfoComponent,
-    ProgrmmeComponent,
+    EventComponent,
     SchoolGalleryComponent,
     StudentListComponent,
     LoginComponent

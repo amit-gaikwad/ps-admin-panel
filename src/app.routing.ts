@@ -6,7 +6,7 @@ import {  StudentComponent } from './app/student/student.component';
 import { ChartsComponent } from './app/charts/charts.component';
 import { NoticePostComponent} from './app/notice-post/notice-post.component';
 import { NoticeDisplayCompnent } from "./app/notice-display/notice-display.component";
-import { ProgrmmeComponent} from './app/progrmme/progrmme.component';
+import { EventComponent} from './app/event/event.component';
 import { SchoolGalleryComponent } from './app/school-gallery/school-gallery.component';
 import { StudentListComponent } from './app/student-list/student-list.component';
 import { StudentInfoComponent } from './app/student-info/student-info.component';
@@ -18,7 +18,7 @@ import { LoginComponent} from './app/login/login.component';
     { path : '' ,component : ChartsComponent }, 
     { path : 'NoticePost', component : NoticePostComponent },
     { path : "NoticeDisplay", component: NoticeDisplayCompnent},
-    { path :'Programe', component : ProgrmmeComponent},
+    { path :'Programe', component : EventComponent},
     { path : 'Gallery', component: SchoolGalleryComponent },
     { path : 'Student-List', component: StudentListComponent },
     { path : 'Student-Info', component: StudentInfoComponent },
@@ -37,6 +37,6 @@ import { LoginComponent} from './app/login/login.component';
     })
 
     export class AppRouting {}
-    export const Components = [AppComponent, StudentComponent, NoticePostComponent, NoticeDisplayCompnent, LoginComponent, StudentInfoComponent, StudentListComponent, ProgrmmeComponent, SchoolGalleryComponent]
+    export const Components = [AppComponent, StudentComponent, NoticePostComponent, NoticeDisplayCompnent, LoginComponent, StudentInfoComponent, StudentListComponent, EventComponent, SchoolGalleryComponent]
 
     
