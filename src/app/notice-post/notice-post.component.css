@@ -13,16 +13,9 @@ input[type=text], select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+    margin-top: 10px;
 }
 
-label {
-    padding-bottom: 12px;
-    display: inline-block;
-    font-size: large;
-}
-.label-danger {
-    background-color: #d9534f;
-}
 
 input[type=submit] {
     background-color: #4CAF50;
@@ -32,6 +25,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     float: right;
+
 }
 
 input[type=submit]:hover {
@@ -40,7 +34,6 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
-    
     padding: 20px;
     width: 100%;
 }
@@ -48,11 +41,12 @@ input[type=submit]:hover {
     height: 500px;
 }
 
-  button {
+button {
     border: 1px solid #0066cc;
     background-color: #00b8a9;
     color: #ffffff;
     padding: 5px 10px;
+    margin-top: 10px;
   }
   
   button:hover {
@@ -68,10 +62,11 @@ input[type=submit]:hover {
     background-color: #cccccc;
     color: #666666;
   }
-  .progDisp{
+.progDisp{
     padding-top: 40px;
     border:3px solid #ddd;
     padding: 20px;
+    margin-bottom: 50px
 }
 .proDisp2 {
     font-style: Serif;
@@ -81,7 +76,6 @@ input[type=submit]:hover {
 .container{
     margin-top: 30px;
 }
-
 
 .form-control {
     display: block;
@@ -100,4 +94,21 @@ input[type=submit]:hover {
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.label-danger {
+    background-color: #d9534f;
+}
+
+.label {
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    margin-bottom: 10px;
+
 }

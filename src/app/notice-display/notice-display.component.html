@@ -2,10 +2,10 @@
         <div class="progDisp"> 
 
            <div class="proDisp2">Notice Board</div>
-            <div class="col-md-12 col-sm-12 col-xs-12 noticeDisplay" *ngFor="let notice of eNotices | paginate : { itemsPerPage : 3, currentPage : p}" >
+            <div class="col-md-12 col-sm-12 col-xs-12 noticeDisplay" *ngFor="let notice of eNotices | paginate : { itemsPerPage : 2, currentPage : p}" >
                 <div class="noticeDisp">
                     <div class="row"> 
-                        <div  class="col-md-4 col-sm-3 col-xs-12 noticeShow">
+                        <div  class="col-md-3 col-sm-3 col-xs-12 noticeShow">
                             <h3><b>{{notice.date | date:"fullDate" }}</b></h3>
                             <h3>Class - {{notice.class}} </h3>
                         </div>
@@ -14,7 +14,7 @@
                              <p>{{ notice.title }}<p>
                              <h3>{{notice.description}}</h3>  
                         </div>
-                        <div class="col-md-2 col-sm-2 col-xs-12 noticeShow">
+                        <div class="col-md-3 col-sm-2 col-xs-12 noticeShow">
                             <button class="btnUp" (click)="onUpdateClick(notice.id)">Update</button>
                             <button class="btnDel" (click)="onDeleteClick(notice.id)">Delete</button>
                         </div>

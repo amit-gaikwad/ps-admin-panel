@@ -21,7 +21,7 @@ export class StudentInfoComponent implements OnInit {
 
   ngOnInit() { 
     this.studentService.getAll().subscribe( data => {this.student = data[0];
-      this.student.photourl = "https://s3-us-west-2.amazonaws.com/preschool-angular/laptop3.jpg";
+      //this.student.photourl = "https://s3-us-west-2.amazonaws.com/preschool-angular/laptop3.jpg";
       console.log(this.student.photourl);
     } );
     
