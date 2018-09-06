@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Response } from "@angular/http";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Notice } from '../model/notice';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstant } from '../constant/app.constant';
@@ -9,23 +9,21 @@ import { AppConstant } from '../constant/app.constant';
 @Injectable()
 export class NoticeService {
     pdfDetails = [];
-    private jsonUrl = "";
+    private noticeUrl = "";
     constructor(private http: HttpClient) {
-        this.jsonUrl = "http://localhost:4200/assets/notice.json";
+        this.noticeUrl = AppConstant.serverUrl + 'notice';
     }
-
-
     getAll(): Observable<any> {
-        return this.http.get(this.jsonUrl).pipe((map((res: Response) => {
-            return res.json();
+        return this.http.get(this.noticeUrl).pipe((map((res: Response) => {
+            return res;
         })));
     }
 
     getByID(id: number): any {
 
-        var element = this.pdfDetails.find((item) => {
+        const element = this.pdfDetails.find((item) => {
             return (item.id === id);
-        })
+        });
         return element || {};
     }
     create(notice: Notice): Observable<any> {
@@ -36,7 +34,7 @@ export class NoticeService {
             })
         };
 
-        return this.http.post(AppConstant.servarUrl+'notice', notice, httpOptions);
+        return this.http.post(this.noticeUrl, notice, httpOptions);
     }
 
 }

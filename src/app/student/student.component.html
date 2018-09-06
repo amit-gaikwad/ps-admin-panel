@@ -1,12 +1,13 @@
 <div class="container">
+        <div class="loading" *ngIf="isUploading">Loading&#8230;</div>
         <div class="col-lg-12 col-sm-12">
-            <div class="titleSize">
+                <div class="titleSize">
                 <h3>
                     Student Information
                 </h3>
             </div>
         
-            <form #studentForm="ngForm" (ngSubmit)="onStudentFormSubmit(studentForm.value)" >
+            <form #studentForm="ngForm" (ngSubmit)="onStudentFormSubmit(studentForm)" >
                 <div class="row"> 
                     <div class="col-lg-2 col-sm-2 col-xs-12">
                         <label for="name"><b>Name</b></label>
@@ -102,7 +103,7 @@
                                     <div class="col-lg-2 col-sm-2 col-xs-12">
                                         <label for="photo"><b>Photo</b></label>
                                     </div>
-                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="col-lg-3 col-sm-4 col-xs-12">
                                         <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
                                         <div *ngIf="photoRef.invalid && photoRef.touched">
                                             <span class="label label-danger" *ngIf="photoRef.errors.required">
@@ -110,18 +111,17 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="col-lg-3 col-sm-4 col-xs-12">
                                     <button type="button" style="width: max-content" [disabled]="studentForm.invalid " value="Upload" (click)="onUpload($event)" >Upload</button>
                             </div>
-                            
-                                </div>
+                        </div>
 
                 <div class="row">
                         <div class="col-lg-2 col-sm-2 col-xs-12">
                         </div>
                         <div class="col-lg-8 col-sm-8 col-xs-12">
                     
-                        <button type="submit" value="Submit" [disabled]="isUploaded">Submit</button>
+                        <button type="submit" value="Submit" [disabled]="isNotUploaded">Submit</button>
                     </div>
                 </div>
             </form>

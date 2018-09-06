@@ -13,20 +13,19 @@ export class ProgrmmeComponent {
 
   selectedFiles: FileList;
   eProg = [];
-  SelectedProgId : number;
-
-   
+  SelectedProgId: number;
 
 
-  constructor(private progService: ProgramService) { 
-    
+
+
+  constructor(private progService: ProgramService) {
+
       progService.getAll().subscribe(
-        (data)=>
-        {
+        (data) => {
           console.log(data);
           this.eProg = data;
         }
-     )
+     );
   }
 
 
@@ -34,9 +33,9 @@ export class ProgrmmeComponent {
     this.selectedFiles = event.target.files;
   }
 
-  onUpload (value:any) {
-    
-    console.log("up load fun ",value);
+  onUpload (value: any) {
+
+    console.log('up load fun ', value);
     const file = this.selectedFiles.item(0);
     if (file) {
         AWS.config.update({
@@ -54,21 +53,17 @@ export class ProgrmmeComponent {
 
         };
         s3.putObject(params, function (err, res) {
-          debugger
             if (err) {
-              debugger
                 console.log('Error uploading data: ', err);
             } else {
-              debugger
               console.log('Successfully uploaded data');
             }
         });
     } else {
-      debugger
       console.log('Nothing to upload.');
     }
   }
-  onProgramSubmit(value:any){
+  onProgramSubmit(value: any) {
     console.log(value);
   }
 
