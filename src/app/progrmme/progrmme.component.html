@@ -1,7 +1,8 @@
 <div class="container">
+    <div class="loading" *ngIf="isUploading">Loading&#8230;</div>
     <div class="progDisp">
         
-<form #eventForm="ngForm" (ngSubmit)="onProgramSubmit(eventForm.value)" >
+<form #eventForm="ngForm" (ngSubmit)="onProgramSubmit(eventForm)" >
   
         <div class="proDisp2"> Add Event</div>
         <hr>
@@ -38,8 +39,13 @@
           <label for="upload"><b>FileUpload</b></label>
       </div>
       <div class="col-lg-4 col-sm-4 col-xs-12">
-          <input type="file" id="imguploaded" (change)="selectFile($event)" />
-      </div>
+          <input type="file"  accept="application/pdf" name="imageurl" ngModel id="imguploaded" #fileRef="ngModel" (change)="selectFile($event)" />
+          <div *ngIf="fileRef.invalid && photoRef.touched">
+                <span class="label label-danger" *ngIf="photoRef.errors.required">
+                    Please Upload Photo
+                </span>
+            </div>
+        </div>
       <div class="col-lg-2 col-sm-2 col-xs-12">
         <button class="upbutton" (click)="onUpload($event)">Upload</button>
    </div> 
@@ -53,13 +59,10 @@
       </div>
      
      <div class="col-lg-4 col-sm-4 col-xs-12">
-        <button type="submit" value="Submit" [disabled]="eventForm.invalid" class="Submitbutton">Submit</button>
+        <button type="submit" value="Submit" [disabled]="!isNotUploaded" class="Submitbutton">Submit</button>
      </div>
   </div>
    
 </form>
-
-
-     
     </div>
 </div>
