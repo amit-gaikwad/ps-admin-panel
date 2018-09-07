@@ -78,10 +78,15 @@
          Images
      </h2>
      <div class="row">
-       <div *ngFor="let item of eProg">
-         <div class="column">
-           <img [src]="item.img_url" />
-          </div> 
+       <div *ngFor="let item of eProg" class="imgDisp">
+            <img [src]="item.img_url" class="imgSize"/>
+            <div class="row">
+                
+                <button class="Deletebutton">Delete</button>
+                <button class="viewbutton">View</button>
+
+            </div>
+            
        </div>
     </div>
    </div>

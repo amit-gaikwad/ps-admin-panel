@@ -154,14 +154,22 @@ imgUpload,.imgDescription {
     padding: 0 10px;
     
   }
-  
+  .imgDisp{
+    width: 180px;
+    height: 180px;
+    margin-top: 45px;
+    padding: 10px;
+  }
+  .imgSize{
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+  }
   /* Create two equal columns that sits next to each other */
   .column {
     flex: 50%;
     padding: 0 10px;
-    
-  }
-  
+      }
   .column img {
     margin-top: 15px;
     vertical-align: middle;
@@ -176,3 +184,51 @@ imgUpload,.imgDescription {
   .label-danger {
     background-color: #d9534f;
 }
+.Deletebutton {
+    border: 1px solid hsl(24, 100%, 48%);
+    background-color: #b82200;
+    color: #ffffff;
+    width: 60px;
+    margin-left: 20px;
+    font-size: 10px;
+
+  }
+  
+  Deletebutton:hover {
+    border: 1px solid #cc0000;
+    background-color: #cc0000;
+    color: #ffffff;
+    
+  }
+  
+  Deletebutton:disabled,
+  button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+  .viewbutton {
+    border: 1px solid hsl(182, 100%, 33%);
+    background-color: #007eb8;
+    color: #ffffff;
+    width: 50px;
+    font-size: 10px;
+    margin-left: 10px;
+    
+
+  }
+  
+  viewbutton:hover {
+    border: 1px solid #0096cc;
+    background-color: #007acc;
+    color: #ffffff;
+    
+  }
+  
+  viewbutton:disabled,
+  button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+
