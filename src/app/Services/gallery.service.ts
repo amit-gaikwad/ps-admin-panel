@@ -18,7 +18,7 @@ export class GalleryService {
     getAll(): Observable<any> {
 
         return this.http.get(this.galleryUrl).pipe((map((res: Response) => {
-            return res.json();
+            return res;
         })));
 
     }

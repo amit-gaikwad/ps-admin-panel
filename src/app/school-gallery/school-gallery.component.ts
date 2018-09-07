@@ -18,19 +18,18 @@ export class SchoolGalleryComponent{
   iCat="";
   category = ["Indoor","Outdoor","GD", "Babies","Monthly Activity","Special Event","Birthday","School Readlines"];
   isPrivate = "public";
+  photourl = "";
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
 
   constructor(private galleryService: GalleryService) { 
-    // console.log("construcot");
-    //   progService.getAll().subscribe(
-    //     (data)=>
-    //     {
-    //       console.log(data);
-    //       this.eProg = data;
-    //     }
-    //  )
+      galleryService.getAll().subscribe(
+        (data)=>
+        {
+          this.eProg = data;
+        }
+     )
   }
 
   selectFile(event) {
@@ -41,31 +40,33 @@ export class SchoolGalleryComponent{
     this.isUploading = true;
     const file = this.selectedFiles.item(0);
     if (file) {
-        AWS.config.update({
-            'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-            'secretAccessKey': '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',
-            'region': 'us-west-2'
-        });
-        const s3 = new AWS.S3();
-        const params = {
-            Bucket: 'preschool-angular',
-            Key: file.name,
-            ContentType: file.type,
-            Body: file,
-            ACL: 'public-read'
-        };
-        s3.putObject(params, (err, res) => {
-            if (err) {
-                console.log('Error uploading data: ', err);
-                this.isUploading = false;
-            } else {
-              console.log('Successfully uploaded data');
+      AWS.config.update({
+          'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
+          'secretAccessKey': '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',
+          'region': 'us-west-2'
+      });
+      const s3 = new AWS.S3();
+      const params = {
+          Bucket: 'preschool-angular',
+          Key: file.name,
+          ContentType: file.type,
+          Body: file,
+          ACL: 'public-read'
+      };
+      s3.putObject(params, (err, res)=> {
+          if (err) {
+              console.log('Error uploading data: ', err);
               this.isUploading = false;
-              this.isNotUploaded = false;
-            }
+          } else {
+            console.log('Successfully uploaded data' , res);
+            this.isNotUploaded = false;
+            this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
+            this.isUploading = false;
+          }
         });
     } else {
       console.log('Nothing to upload.');
+      this.isUploading = false;
     }
   }
 
@@ -73,7 +74,7 @@ export class SchoolGalleryComponent{
     this.isSubmiting = true;
     const gallery = new Gallery();
     gallery.category = form.value.category;
-    gallery.img_url = form.value.img_url;
+    gallery.img_url = this.photourl ;
     if(this.isPrivate == 'public'){
       gallery.isPrivate  = false;
     }else{
