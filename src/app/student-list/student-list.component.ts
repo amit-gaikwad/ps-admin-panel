@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../Services/student.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
@@ -9,7 +10,7 @@ export class StudentListComponent implements OnInit {
  
   studentList = [];
   searchString = "";
-  constructor( private studentService : StudentService) { 
+  constructor( private studentService : StudentService, private _router : Router) { 
      }
  
   ngOnInit() {
@@ -26,10 +27,15 @@ export class StudentListComponent implements OnInit {
           });
         }else{
           this.studentList = data;
-
         }
     }
     );
+  }
+
+  navigateToInfo(id:any)
+  { 
+    console.log("evet  is clicked ...");
+     this._router.navigate(['Student-Info',{sId:id}]);
   }
   
 }
