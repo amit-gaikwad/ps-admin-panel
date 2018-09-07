@@ -103,7 +103,7 @@ onUpload (event) {
   parent.name=val.value.pname;
   parent.address=val.value.address;
   parent.email=val.value.email;
-  parent.mobile=val.value.mobile;
+  parent.mobileno= +val.value.mobile;
   parent.password='';
   parent.student_ids=[];
 
@@ -112,6 +112,7 @@ onUpload (event) {
   this.studentService.create(student,parent).subscribe(
       studentObj => {
         console.log('Student added successfully');
+        console.log(studentObj);
         val.reset();
         this.isSubmiting = false;
         this.isNotUploaded = true;
