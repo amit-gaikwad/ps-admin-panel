@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentService } from './Services/student.service';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -47,7 +48,8 @@ import { LoginComponent } from './login/login.component';
     EventComponent,
     SchoolGalleryComponent,
     StudentListComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

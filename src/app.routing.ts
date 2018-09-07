@@ -11,18 +11,22 @@ import { SchoolGalleryComponent } from './app/school-gallery/school-gallery.comp
 import { StudentListComponent } from './app/student-list/student-list.component';
 import { StudentInfoComponent } from './app/student-info/student-info.component';
 import { LoginComponent} from './app/login/login.component';
+import { DashboardComponent } from './app/dashboard/dashboard.component';
+import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util';
 
   const routes : Routes = [ 
    
-    { path : 'Student' , component : StudentComponent },
-    { path : '' ,component : ChartsComponent }, 
-    { path : 'NoticePost', component : NoticePostComponent },
-    { path : "NoticeDisplay", component: NoticeDisplayCompnent},
-    { path :'Programe', component : EventComponent},
-    { path : 'Gallery', component: SchoolGalleryComponent },
-    { path : 'Student-List', component: StudentListComponent },
-    { path : 'Student-Info', component: StudentInfoComponent },
-    { path : "Login", component : LoginComponent}
+    { path : 'student' , component : StudentComponent },
+    { path : 'charts' ,component : ChartsComponent }, 
+    { path : 'noticepost', component : NoticePostComponent },
+    { path : "noticedisplay", component: NoticeDisplayCompnent},
+    { path :'programe', component : EventComponent},
+    { path : 'gallery', component: SchoolGalleryComponent },
+    { path : 'studentlist', component: StudentListComponent },
+    { path : 'studentinfo', component: StudentInfoComponent },
+    { path : "", component : LoginComponent},
+    { path : "login", component : LoginComponent},
+    {path : "dashboard" , component:DashboardComponent}
 
     // { path:'NoticeBoard' ,component: },
     // { path:'Progrmme' , component: } ,
@@ -37,6 +41,6 @@ import { LoginComponent} from './app/login/login.component';
     })
 
     export class AppRouting {}
-    export const Components = [AppComponent, StudentComponent, NoticePostComponent, NoticeDisplayCompnent, LoginComponent, StudentInfoComponent, StudentListComponent, EventComponent, SchoolGalleryComponent]
+    export const Components = [AppComponent, StudentComponent, NoticePostComponent, NoticeDisplayCompnent, LoginComponent, StudentInfoComponent, StudentListComponent, EventComponent, SchoolGalleryComponent, DashboardComponent]
 
     

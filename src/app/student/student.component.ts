@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {StudentService} from '../Services/student.service';
 import {Student} from '../model/student';
+import { Parent } from '../model/parent';
 import { NgForm } from '@angular/forms';
 
 declare var AWS: any;
@@ -25,6 +26,10 @@ export class StudentComponent implements OnInit {
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
+  pName='';
+  pEmail='';
+  paddress='';
+  pMobile='';
 
 
   constructor(private studentService: StudentService ) {
@@ -87,13 +92,24 @@ onUpload (event) {
     console.log(this.photourl);
     const student = new Student();
     
-    student.name = val.value.name;
+  student.name = val.value.name;
   student.age = val.value.age;
   student.gender = val.value.gender;
   student.rollno = val.value.rollno;
   student.photourl = this.photourl;
   student.classteacher_id = '1'; // will be change later
-  this.studentService.create(student).subscribe(
+  const parent=new Parent();
+
+  parent.name=val.value.pname;
+  parent.address=val.value.address;
+  parent.email=val.value.email;
+  parent.mobile=val.value.mobile;
+  parent.password='';
+  parent.student_ids=[];
+
+
+
+  this.studentService.create(student,parent).subscribe(
       studentObj => {
         console.log('Student added successfully');
         val.reset();

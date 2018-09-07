@@ -73,7 +73,8 @@ export class SchoolGalleryComponent{
   onSubmit(form : NgForm){
     this.isSubmiting = true;
     const gallery = new Gallery();
-    gallery.category = form.value.category;
+    gallery.category = form.value.category.toLocaleLowerCase().replace(" ","");
+  
     gallery.img_url = this.photourl ;
     if(this.isPrivate == 'public'){
       gallery.isPrivate  = false;

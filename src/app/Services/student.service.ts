@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import {Student} from '../model/student';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { AppConstant } from '../constant/app.constant';
+import { Parent } from '../model/parent';
 
 @Injectable()
 export class StudentService {
@@ -18,14 +19,14 @@ export class StudentService {
    return  this.http.get(this.studentUrl).pipe(map((res: Response) => res));
  }
   // for student registration
- create(student: Student): Observable<any> {
+ create(student: Student,parent:Parent): Observable<any> {
 
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })
   };
-
-  return this.http.post(this.studentUrl, student, httpOptions);
+  var studDetails={student,parent};
+  return this.http.post(this.studentUrl, studDetails, httpOptions);
  }
 }

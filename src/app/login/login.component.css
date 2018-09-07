@@ -4,8 +4,9 @@
 .container {
   position: relative;
   border-radius: 5px;
- 
-  padding: 250px 0 30px 0;
+  margin: auto;  
+ overflow: hidden;
+  padding: 170px 0 230px 0;
 } 
 
 /* style inputs and link buttons */
@@ -18,8 +19,8 @@ input,
   margin: 5px 0;
   opacity: 0.85;
   display: inline-block;
-  font-size: 17px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 15px;
   text-decoration: none; /* remove underline from anchors */
 }
 
@@ -51,21 +52,6 @@ input[type=password] {
 }
 
 
-/* Two-column layout */
-.col {
-  float: left;
-  width: 50%;
-  margin: auto;
-  padding: 0 50px;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* vertical line */
 .vl {
@@ -73,7 +59,7 @@ input[type=password] {
   left: 50%;
   transform: translate(-50%);
   border: 2px solid #ddd;
-  height: 175px;
+  height: 100px;
 }
 
 /* text inside the vertical line */
@@ -102,7 +88,7 @@ input[type=password] {
 }
 
 .signbtn {
-  color: #ccc;
+  color: white;
   width: 100%;
   padding: 12px;
   border: none;
@@ -115,6 +101,24 @@ input[type=password] {
   text-decoration: none; /* remove underline from anchors */
   text-align: center;
   flex: auto;
+  background-color: #4CAF50;
+}
+
+.progDisp{
+ 
+  border:3px solid #ddd;
+  padding: 20px;
+  margin-bottom: 50px
+}
+.bodyBackground{
+  background-image: url(/assets/bgImg.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  background-repeat: no-repeat;
+  
+ 
 }
 
 /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
