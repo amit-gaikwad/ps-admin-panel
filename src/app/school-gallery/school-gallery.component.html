@@ -1,0 +1,93 @@
+
+<div class="container">
+        <div class="loading" *ngIf="isUploading || isSubmiting">Loading&#8230;</div>
+    <div class="progDisp">
+      <form #galleryForm="ngForm" (ngSubmit)="onSubmit(galleryForm)" >
+        <div class="proDisp2"> Upload Images</div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <label for="Img Upload"><b>Image Upload</b></label>
+            </div>
+            
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+                        <div *ngIf="photoRef.invalid && photoRef.touched">
+                            <span class="label label-danger" *ngIf="photoRef.errors.required">
+                                Please Upload Photo
+                            </span>
+                        </div>
+                      </div>
+             
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <button type="button" [disabled]="galleryForm.invalid" class="upbutton" id="upload-button" (click)="onUpload($event)">Upload</button>
+            </div>  
+          </div>
+          <div class="row">
+              <div class="col-lg-3 col-sm-3 col-xs-12">
+                  <label for="Category"><b>Select Category</b></label>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                <select class="form-control form-control-sm" id="category" name="category" placeholder="Select Category.." [value]="iCat"  ngModel #categoryRef="ngModel" required>
+                  <option *ngFor="let item of category">{{ item }}</option>
+                </select>
+                <div *ngIf="categoryRef.invalid && categoryRef.touched">
+                    <div *ngIf="categoryRef.errors.required" class="label-danger">
+                        Please Select Category
+                    </div>
+                </div>
+
+              </div>
+
+
+          </div>
+          <div class="row" style="margin-bottom: 20px">
+                <div class="col-lg-3 col-sm-3 col-xs-12">
+                    <label for="gender"><b>Privacy</b></label>
+                </div>
+                <div class="col-lg-9 col-sm-4 col-xs-12">
+                        <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                        Public
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                     <input type="radio" [(ngModel)] ="isPrivate" name="privacy" value="public" ngModel >
+                                </div> 
+                        </div>
+                        <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                        Parent Only
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                  <input type="radio" [(ngModel)] = "isPrivate" name="privacy" value="private" ngModel >
+                                </div>  
+                        </div>
+                </div>
+        </div>
+          <div class="row">
+              <div class="col-lg-2 col-sm-2 col-xs-12"></div>
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                  <button type="submit" value="Submit" [disabled]="isNotUploaded"  class="Submitbutton">Submit</button>
+              </div>
+          </div>
+      </form>
+   </div>
+   <br>
+   <div class="progContainer">
+     <h2>
+         Images
+     </h2>
+     <div class="row">
+       <div *ngFor="let item of eProg" class="imgDisp">
+            <img [src]="item.img_url" class="imgSize"/>
+            <div class="row">
+                
+                <button class="Deletebutton">Delete</button>
+                <button class="viewbutton">View</button>
+
+            </div>
+            
+       </div>
+    </div>
+   </div>
+  </div>

@@ -1,0 +1,139 @@
+* {box-sizing: border-box}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  margin: auto;  
+ overflow: hidden;
+  padding: 170px 0 230px 0;
+} 
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=text] {
+  border: solid #666;
+  
+}
+
+input[type=password] {
+  border: solid #666;
+  
+}
+
+
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 100px;
+}
+
+/* text inside the vertical line */
+.inner {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  
+  background-color: #666;
+  text-align: center;
+  color: #ccc;
+  
+}
+
+.signbtn {
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+  text-align: center;
+  flex: auto;
+  background-color: #4CAF50;
+}
+
+.progDisp{
+ 
+  border:3px solid #ddd;
+  padding: 20px;
+  margin-bottom: 50px
+}
+.bodyBackground{
+  background-image: url(/assets/bgImg.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  background-repeat: no-repeat;
+  
+ 
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}

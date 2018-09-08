@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="progDisp">
+
+  <div class="proDisp2">Student List</div>
+  <div class="row progDisp">
+      <div class="col-lg-2 col-sm-2 col-xs-12 ">
+        Search Student
+      </div>
+    <div class="col-lg-6 col-sm-6 col-xs-12 ">
+      <input type="text" class="form-control form-control-sm" placeholder="Search ...." name="serch" [(ngModel)]="searchString"
+        (keydown)="getBySerach()">
+    </div>
+    <div>
+      <button class="icon"><i class="fa fa-search"></i></button>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Roll Number</th>
+        <th>Age</th>
+        <th> Activity </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of studentList | paginate: { itemsPerPage: 10 ,currentPage : p }" style="height:20px;">
+        <td>{{i.name}}</td>
+        <td>2-3 Years</td>
+        <td>{{i.rollno}}</td>
+        <td>{{i.age}}</td>
+        <td> <span>
+            <i class="fa fa-edit btn-space"></i>
+            <i class="fa fa-eye btn-space"></i>
+            <i class="fa fa-trash-alt btn-space"></i>
+          </span> </td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p=$event"> </pagination-controls>
+  </table>
+
+</div>
+
+</div>
