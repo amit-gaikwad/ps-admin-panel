@@ -7,3 +7,15 @@
     overflow: hidden;
     height:100%;
 }
+.sideBar 
+{
+    position: fixed; z-index: +5;padding-left: 0px;
+}
+.margin
+{
+    margin-left: 25% ;
+}
+.marginTop
+{
+    margin-top:50px;
+}

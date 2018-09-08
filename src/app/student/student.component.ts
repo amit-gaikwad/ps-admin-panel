@@ -37,15 +37,6 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {}
 
-  onlyDecimalNumberKey(event) {
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode !== 46 && charCode > 31
-        && (charCode < 48 || charCode > 57)) {
-        return false;
-    }
-    return true;
-}
-
 selectFile(event) {
   this.selectedFiles = event.target.files;
   console.log(this.selectedFiles.item(0));

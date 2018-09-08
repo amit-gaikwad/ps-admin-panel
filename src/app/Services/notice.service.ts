@@ -19,7 +19,7 @@ export class NoticeService {
         })));
     }
 
-    getByID(id: number): any {
+    getById(id: number): any {
 
         const element = this.pdfDetails.find((item) => {
             return (item.id === id);

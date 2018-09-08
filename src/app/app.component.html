@@ -1,55 +1,19 @@
- 
-  <app-header></app-header>
-  <div id="wrapper" style="margin-top:50px;">
-      <!-- <ul class="sidebar navbar-nav">
-          <li class="nav-item">
-           <a class="nav-link" [routerLink]="['/Student']" routerLinkActive="active">
-               <i class="fas fa-fw fa-chart-area"></i>
-               <span>Admin Student</span>
-           </a>
-          </li>
-          <li class="nav-item">
-             <a class="nav-link" routerLink="/NoticeBoard">
-               <i class="fas fa-fw fa-chart-area"></i>
-               <span>Notice Board</span>
-             </a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" routerLink="/Programme">
-              <i class="fas fa-fw fa-chart-area"></i>
-              <span>Programme</span>
-             </a>
-          </li>
-          <li class="nav-item">
-             <a class="nav-link" routerLink="/Gallery">
-               <i class="fas fa-fw fa-chart-area"></i>
-               <span>School Gallery</span>
-             </a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/Website">
-               <i class="fas fa-fw fa-chart-area"></i>
-               <span>Website</span>
-             </a>
-          </li>
-        </ul> -->
-        <div class="container-fluid">
-          <div class="row">
-
-            <div class="col-md-3 col-sm-3 col-xs-12" style="position: fixed; z-index: +5;padding-left: 0px;">
-              <app-sidebar></app-sidebar>
-            </div>
-            <div class="col-md-9 col-sm-9 col-xs-12" style="margin-left: 25%">
-              <div class="containerwidth">
-                <router-outlet></router-outlet>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <app-footer> </app-footer>
-
-          </div>
+<app-header>
+</app-header>
+<div id="wrapper marginTop">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 sideBar">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-md-9 col-sm-9 col-xs-12 margin">
+        <div class="containerwidth">
+          <router-outlet></router-outlet>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <app-footer> </app-footer>
+    </div>
   </div>
-  
-   
+</div>

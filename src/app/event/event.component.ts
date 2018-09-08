@@ -19,21 +19,11 @@ export class EventComponent {
   isSubmiting = false;
   pdfUrl = ''; 
 
-  constructor(private progService: ProgramService) {
-
-    //   progService.getAll().subscribe(
-    //     (data) => {
-    //       console.log(data);
-    //       this.eProg = data;
-    //     }
-    //  );
-  }
-
-
+  constructor(private progService: ProgramService) {}
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
-
+  
   onUpload (value: any) {
      
     console.log('up load fun ', value);

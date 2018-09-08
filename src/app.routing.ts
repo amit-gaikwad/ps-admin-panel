@@ -15,7 +15,7 @@ import { DashboardComponent } from './app/dashboard/dashboard.component';
 import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util';
 
   const routes : Routes = [ 
-   
+    { path : "", component : LoginComponent},
     { path : 'student' , component : StudentComponent },
     { path : 'charts' ,component : ChartsComponent }, 
     { path : 'noticepost', component : NoticePostComponent },
@@ -24,7 +24,6 @@ import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util'
     { path : 'gallery', component: SchoolGalleryComponent },
     { path : 'studentlist', component: StudentListComponent },
     { path : 'studentinfo', component: StudentInfoComponent },
-    { path : "", component : LoginComponent},
     { path : "login", component : LoginComponent},
     {path : "dashboard" , component:DashboardComponent}
 
@@ -41,6 +40,9 @@ import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util'
     })
 
     export class AppRouting {}
-    export const Components = [AppComponent, StudentComponent, NoticePostComponent, NoticeDisplayCompnent, LoginComponent, StudentInfoComponent, StudentListComponent, EventComponent, SchoolGalleryComponent, DashboardComponent]
+    export const Components = [AppComponent, StudentComponent, NoticePostComponent,
+                               NoticeDisplayCompnent, LoginComponent, StudentInfoComponent,
+                               StudentListComponent, EventComponent, SchoolGalleryComponent,
+                               DashboardComponent]
 
     
