@@ -24,12 +24,16 @@ export class SchoolGalleryComponent{
   isSubmiting = false;
 
   constructor(private galleryService: GalleryService) { 
-      galleryService.getAll().subscribe(
-        (data)=>
-        {
-          this.eProg = data;
-        }
-     )
+     this.loadPage();
+  }
+  loadPage()
+  {
+    this.galleryService.getAll().subscribe(
+      (data)=>
+      {
+        this.eProg = data;
+      }
+   )
   }
 
   selectFile(event) {
@@ -55,17 +59,14 @@ export class SchoolGalleryComponent{
       };
       s3.putObject(params, (err, res)=> {
           if (err) {
-              console.log('Error uploading data: ', err);
               this.isUploading = false;
           } else {
-            console.log('Successfully uploaded data' , res);
             this.isNotUploaded = false;
             this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
             this.isUploading = false;
           }
         });
     } else {
-      console.log('Nothing to upload.');
       this.isUploading = false;
     }
   }
@@ -90,9 +91,35 @@ export class SchoolGalleryComponent{
         this.isNotUploaded = true;
       },
       error => {
-        console.log(error);
         this.isSubmiting = false;
       }
     )
+  }
+  onDelete(item :  any )
+  {
+    var str = item.img_url;
+    var n = str.lastIndexOf('/');
+    let  result = str.substring(n + 1);
+    AWS.config.update({
+      'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
+      'secretAccessKey': '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',
+      'region': 'us-west-2'
+  });
+  const s3 = new AWS.S3();
+    var params = {
+      Bucket: 'preschool-angular',
+      Key: result,
+    };
+    s3.deleteObject(params, (err, data) => {
+      if (err)
+          { console.log(err, err.stack); 
+          }// an error occurred
+      else 
+          { 
+            this.galleryService.deleteById(item._id).subscribe(data => {  });
+            this.loadPage();
+          } // successful response
+          
+    });
   }
 }

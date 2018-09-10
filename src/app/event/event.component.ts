@@ -7,7 +7,7 @@ declare var AWS: any;
 @Component({
   selector: 'app-progrmme',
   templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css','../../assets/css/loading-animation.css']
+  styleUrls: ['./event.component.css', '../../assets/css/loading-animation.css']
 })
 export class EventComponent {
 
@@ -17,56 +17,51 @@ export class EventComponent {
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
-  pdfUrl = ''; 
+  pdfUrl = '';
 
-  constructor(private progService: ProgramService) {}
+  constructor(private progService: ProgramService) { }
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
-  
-  onUpload (value: any) {
-     
-    console.log('up load fun ', value);
-    this.isUploading = true ;
+
+  onUpload(value: any) {
+    this.isUploading = true;
     const file = this.selectedFiles.item(0);
     if (file) {
-        AWS.config.update({
-            'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-            'secretAccessKey': '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',
-            'region': 'us-west-2'
-        });
-        const s3 = new AWS.S3();
-        const params = {
-            Bucket: 'preschool-angular',
-            Key: file.name,
-            ContentType: file.type,
-            Body: file,
-            ACL: 'public-read'
+      AWS.config.update({
+        'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
+        'secretAccessKey': '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',
+        'region': 'us-west-2'
+      });
+      const s3 = new AWS.S3();
+      const params = {
+        Bucket: 'preschool-angular',
+        Key: file.name,
+        ContentType: file.type,
+        Body: file,
+        ACL: 'public-read'
 
-        };
-        s3.putObject(params,  (err, res) => {
-            if (err) {
-                console.log('Error uploading data: ', err);
-                this.isUploading = false;
-            } else {
-              this.isNotUploaded = false;
-              this.isUploading = false;
-
-              this.pdfUrl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
-            }
-        });
+      };
+      s3.putObject(params, (err, res) => {
+        if (err) {
+          this.isUploading = false;
+        } else {
+          this.isNotUploaded = false;
+          this.isUploading = false;
+          this.pdfUrl = "https://" + "s3-us-west-2.amazonaws.com/preschool-angular/" + file.name;
+        }
+      });
     } else {
-      console.log('Nothing to upload.');
       this.isUploading = false;
     }
   }
-  onProgramSubmit(event:NgForm) {
+  onProgramSubmit(event: NgForm) {
     this.isSubmiting = true;
     const events = new Event();
-    events.title = event.value.title ; 
-    events.description =  event.value.description ;
+    events.title = event.value.title;
+    events.description = event.value.description;
     events.date = new Date();
-    events.imgurl =  this.pdfUrl ;
+    events.imgurl = this.pdfUrl;
     this.progService.create(events).subscribe(
       studentObj => {
         this.isNotUploaded = true;
@@ -74,10 +69,9 @@ export class EventComponent {
         this.isSubmiting = false;
       },
       error => {
-        console.log(error);
         this.isSubmiting = false;
       }
-  );
+    );
   }
 
 }
