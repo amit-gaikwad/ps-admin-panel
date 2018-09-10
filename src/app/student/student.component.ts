@@ -4,6 +4,7 @@ import {StudentService} from '../Services/student.service';
 import {Student} from '../model/student';
 import { Parent } from '../model/parent';
 import { NgForm } from '@angular/forms';
+import { ParentService } from '../Services/parent.service';
 
 declare var AWS: any;
 
@@ -30,12 +31,24 @@ export class StudentComponent implements OnInit {
   pEmail='';
   paddress='';
   pMobile='';
+  
+  studentDetails = [];
 
+  constructor(private studentService: StudentService , private parentService : ParentService ) {
+    
 
-  constructor(private studentService: StudentService ) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  //   this.parentService.getAll().subscribe(data => { 
+  //     this.studentDetails = data.map(item => item.email) ;
+  //     console.log(this.studentDetails);
+  //  });
+  }
+
+  // isExistEmail(){
+  //    return this.studentDetails.includes(this.pEmail);
+  // }
 
 selectFile(event) {
   this.selectedFiles = event.target.files;
@@ -43,10 +56,9 @@ selectFile(event) {
 }
 onUpload (event) {
 
- // this.isUploaded = false;
     this.isUploading = true;
   const file = this.selectedFiles.item(0);
-  //this.photourl = 'https://' + 's3-us-west-2.amazonaws.com/preschool-angular/' + file.name;
+
   if (file) {
       AWS.config.update({
           'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',

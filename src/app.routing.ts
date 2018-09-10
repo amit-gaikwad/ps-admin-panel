@@ -13,9 +13,10 @@ import { StudentInfoComponent } from './app/student-info/student-info.component'
 import { LoginComponent} from './app/login/login.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
 import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util';
+import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.component';
 
   const routes : Routes = [ 
-    { path : "", component : LoginComponent},
+    { path : "", redirectTo : 'login', pathMatch: 'full'},
     { path : 'student' , component : StudentComponent },
     { path : 'charts' ,component : ChartsComponent }, 
     { path : 'noticepost', component : NoticePostComponent },
@@ -24,8 +25,11 @@ import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util'
     { path : 'gallery', component: SchoolGalleryComponent },
     { path : 'studentlist', component: StudentListComponent },
     { path : 'studentinfo', component: StudentInfoComponent },
-    { path : "login", component : LoginComponent},
-    {path : "dashboard" , component:DashboardComponent}
+    { path : 'login', component : LoginComponent},
+    {path : 'dashboard' , component:DashboardComponent},
+    {path : 'parentdashboard' , component: ParentDashboardComponent}
+
+
 
     // { path:'NoticeBoard' ,component: },
     // { path:'Progrmme' , component: } ,

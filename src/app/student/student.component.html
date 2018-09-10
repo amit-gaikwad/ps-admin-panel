@@ -13,7 +13,9 @@
                         <label for="name"><b>Name</b></label>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-12">
-                        <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Student Name.." ngModel [value]="sName" #nameRef="ngModel" required>
+                        <input type="text" id="name" name="name" 
+                        class="form-control form-control-sm" placeholder="Student Name.." 
+                        ngModel [value]="sName" #nameRef="ngModel" required>
                             <div *ngIf="nameRef.invalid && nameRef.touched">
                                 <span class="label label-danger" *ngIf="nameRef.errors.required">
                                     Please Enter Student Name
@@ -21,7 +23,7 @@
                             </div>
                     </div>
                     <div class="col-lg-2 col-sm-2 col-xs-12">
-                            <label for="class"><b>Class</b></label>
+                            <label for="class"><b>Class</b></label> 
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-12">
                             <select class="form-control form-control-sm" id="class" 
@@ -127,7 +129,8 @@
                                 <label for="Email"><b>Email</b></label>
                         </div>
                         <div class="col-lg-4 col-sm-4 col-xs-12">
-                                <input type="text" id="email" name="email" class="form-control form-control-sm" placeholder="Email Address.." ngModel [value]="pEmail" #emailRef="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <input type="text" id="email" name="email" 
+                                class="form-control form-control-sm" placeholder="Email Address.." ngModel [value]="pEmail" #emailRef="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                                 <div *ngIf="emailRef.invalid && emailRef.touched">
                                     <span class="label label-danger" *ngIf="emailRef.errors.required">
                                         Please Enter Email Address
@@ -135,6 +138,9 @@
                                     <span class="label label-danger" *ngIf="emailRef.errors && emailRef.errors.pattern">
                                             Please Enter Valid Email Address
                                     </span>
+                                    <!-- <span class="label label-danger" *ngIf="isExistEmail()">
+                                        Email Address Already Exist
+                                </span> -->
                                 </div>
                         </div>
 

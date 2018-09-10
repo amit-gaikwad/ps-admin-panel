@@ -22,11 +22,16 @@ export class StudentInfoComponent implements OnInit {
   ngOnInit() {
     this._ActivatedRoute.params.subscribe(( parms :Params) =>{ this.studentId = parms["sId"];});
 
-    if (this.studentId != undefined || this.studentId == null)
+    if (this.studentId != undefined || this.studentId != null)
       {
        this.studentService.getById(this.studentId).subscribe((data) => {
         this.student = data;
        });
+      }else{
+        this.studentId = "5b90e3397c284153d600d0d9" ;//find parent's student id and assign
+        this.studentService.getById(this.studentId).subscribe((data) => {
+          this.student = data;
+         });
       }
   }
 }

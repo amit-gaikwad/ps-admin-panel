@@ -15,21 +15,29 @@ export class StudentListComponent implements OnInit {
  
   ngOnInit() {
     this.studentService.getAll().subscribe(data => { 
-       this.studentList = data;
+       this.sortByName(data);
     });
   }
   getBySerach(){
     this.studentService.getAll().subscribe(data =>{
-        this.studentList = data;
-        if(this.searchString){
-          this.studentList = this.studentList.filter(item =>{
-            return (item.name.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+          this.sortByName(data);
+        if(this.searchString.trim()){
+          var tempData = this.studentList.filter(item =>{
+            return (item.name.toLocaleLowerCase().includes(this.searchString.trim().toLocaleLowerCase()));
           });
+          this.sortByName(tempData);
+
         }else{
-          this.studentList = data;
+          this.sortByName(data);
         }
     }
     );
+  }
+
+  sortByName(students : any[]) {
+    this.studentList = students.sort((a , b) => {
+      return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+     });
   }
 
   navigateToInfo(id:any)

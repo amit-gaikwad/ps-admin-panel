@@ -26,7 +26,8 @@ export class StudentService {
       'Content-Type':  'application/json'
     })
   };
-  return this.http.post(this.studentUrl, student, httpOptions);
+  var studDetails={student,parent};
+  return this.http.post(this.studentUrl, studDetails, httpOptions);
  }
 
  getById(ids : any ): Observable<any>

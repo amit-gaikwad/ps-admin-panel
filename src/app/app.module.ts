@@ -28,6 +28,8 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentService } from './Services/student.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ParentDashboardComponent } from './parent-dashboard/parent-dashboard.component';
+import { ParentService } from './Services/parent.service';
 
 
 
@@ -49,7 +51,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SchoolGalleryComponent,
     StudentListComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ParentDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     
    
   ],
-  providers: [ NoticeService, ProgramService, GalleryService, StudentService ],
+  providers: [ NoticeService, ProgramService, GalleryService, StudentService, ParentService ],
    
   
   bootstrap: [AppComponent]

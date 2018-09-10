@@ -9,29 +9,25 @@ import { ChartModule } from "angular-highcharts" ;
 export class BarChartComponent {
   private type ="bar";
     chart : any;
-     d=[1, 2, 3];
+     d=[1,2,3,4,5];
+     
       constructor(){
         this.chart=new Chart({
           chart: {
             type: this.type
           },
           title: {
-            text: 'line chart'
+            text: 'Line Chart'
           },
           credits: {
             enabled: false
           },
           series: [
             {
-              name: 'X axis',
+              name: 'Data',
               data: this.d
             }
           ]
         });
       }
-      
-
-           }
-           
-  
-
+  }
