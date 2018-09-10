@@ -31,9 +31,9 @@
         <td>{{i.rollno}}</td>
         <td>{{i.age}}</td>
         <td> <span>
-            <i class="fa fa-edit btn-space"></i>
-            <i class="fa fa-eye btn-space"></i>
-            <i class="fa fa-trash-alt btn-space"></i>
+           <button> <i class="fa fa-edit btn-space" ></i> </button>
+           <button  (click)="navigateToInfo(i._id)"> <i class="fa fa-eye btn-space"></i> </button>
+           <button> <i class="fa fa-trash-alt btn-space"></i> </button> 
           </span> </td>
       </tr>
     </tbody>

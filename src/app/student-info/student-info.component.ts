@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../Services/student.service';
 import { Student } from '../model/student';
+import { ActivatedRoute, Params } from '@angular/router';
+
 @Component({
   selector: 'app-student-info',
   templateUrl: './student-info.component.html',
@@ -8,22 +10,23 @@ import { Student } from '../model/student';
 })
 export class StudentInfoComponent implements OnInit {
 
-  student : Student ;
-  creativity=50;
-  communication=70;
-  groupActivity=80;
-  physicalActivity=60;
-  educationActivity=70;
+  student : Student   ;
+  creativity = 50;
+  communication = 70;
+  groupActivity = 80;
+  physicalActivity = 60;
+  educationActivity = 70;
+  studentId = "" ;
+  constructor(private studentService: StudentService, private _ActivatedRoute: ActivatedRoute) {}
   
-  constructor( private studentService : StudentService ) { }
-  
+  ngOnInit() {
+    this._ActivatedRoute.params.subscribe(( parms :Params) =>{ this.studentId = parms["sId"];});
 
-
-  ngOnInit() { 
-    this.studentService.getAll().subscribe( data => {this.student = data[0];
-      //this.student.photourl = "https://s3-us-west-2.amazonaws.com/preschool-angular/laptop3.jpg";
-      console.log(this.student.photourl);
-    } );
-    
+    if (this.studentId != undefined || this.studentId == null)
+      {
+       this.studentService.getById(this.studentId).subscribe((data) => {
+        this.student = data;
+       });
+      }
   }
 }

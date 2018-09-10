@@ -1,23 +1,19 @@
 <div class="container">
   <div class="studContainer">
-    
-    
     <div class="row">
         <div class="col-lg-12 col-sm-12">
             <div class="proDisp2">
                 
                     Student Information.
-                
+             
             </div>
         </div>
     </div>
     <hr>
     <div>
-        
             <div class="col-lg-12 col-sm-12">
-                  <img [src]="student.photourl" class="studImg">
+                  <img [src]="student?.photourl" class="studImg">
             </div>
-       
     </div>
     <hr>
     <div class="row">
@@ -28,15 +24,15 @@
                 <label for="name"><b>Name</b></label>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12">
-                {{student.name}}
-            </div>
+                {{student?.name}}
+            </div>  
           </div>
           <div class="row">
               <div class="col-lg-3 col-sm-3 col-xs-12">
                   <label for="age"><b>Age</b></label>
               </div>
               <div class="col-lg-4 col-sm-4 col-xs-12">
-                  {{student.age}}
+                  {{student?.age}}
               </div>
           </div>
           <div class="row">
@@ -44,7 +40,7 @@
                   <label for="rollno"><b>Roll No.</b></label>
               </div>
               <div class="col-lg-4 col-sm-4 col-xs-12">
-                  {{student.rollno}}
+                  {{student?.rollno}}
               </div>
           </div>
           <div class="row">
@@ -52,7 +48,7 @@
                   <label for="gender"><b>Gender</b></label>
               </div>
               <div class="col-lg-4 col-sm-4 col-xs-12">
-                  {{student.gender}}
+                  {{student?.gender}}
               </div>
           </div>
         </div>

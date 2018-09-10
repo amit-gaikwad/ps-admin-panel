@@ -9,7 +9,7 @@ import { Parent } from '../model/parent';
 
 @Injectable()
 export class StudentService {
-    private studentUrl = '';
+     studentUrl= '';
     constructor(private http: HttpClient) {
       this.studentUrl = AppConstant.serverUrl + 'student';
     }
@@ -26,7 +26,11 @@ export class StudentService {
       'Content-Type':  'application/json'
     })
   };
-  var studDetails={student,parent};
-  return this.http.post(this.studentUrl, studDetails, httpOptions);
+  return this.http.post(this.studentUrl, student, httpOptions);
  }
+
+ getById(ids : any ): Observable<any>
+ {
+   return this.http.get(this.studentUrl+'/'+ids).pipe(map((res:Response) => res)); 
+}
 }
