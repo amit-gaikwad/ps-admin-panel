@@ -1,2 +1,184 @@
+<div class="container">
+        <div class="loading" *ngIf="isUploading || isSubmiting">Loading&#8230;</div>
+        <div class="col-lg-12 col-sm-12">
+                <div class="titleSize">
+                <h3>
+                    Student Information
+                </h3>
+            </div>
+        
+            <form #studentForm="ngForm" (ngSubmit)="onStudentFormSubmit(studentForm)" >
+                <div class="row"> 
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="name"><b>Name</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Student Name.." ngModel [value]="sName" #nameRef="ngModel" required>
+                            <div *ngIf="nameRef.invalid && nameRef.touched">
+                                <span class="label label-danger" *ngIf="nameRef.errors.required">
+                                    Please Enter Student Name
+                                </span>
+                            </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                            <label for="class"><b>Class</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                            <select class="form-control form-control-sm" id="class" 
+                            name="class" [value]="sClass" ngModel #classRef="ngModel" required>
+                                <option *ngFor = "let class of classes">{{class}}</option>
+                              </select>
 
-this is from student component
+                            <div *ngIf="classRef.invalid && classRef.touched">
+                                <span class="label label-danger" *ngIf="classRef.errors.required">
+                                    Please Enter Class
+                                </span>
+                            </div>
+
+                    </div>
+
+                    
+                </div>
+          
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2 col-xs-12"> 
+                        <label for="rollno"><b>Roll No</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input id="rollno" name="rollno" placeholder="Roll Number..." 
+                        class="form-control form-control-sm" ngModel [value]="sRollNo" 
+                        #rollnoRef="ngModel" (keypress)="onlyDecimalNumberKey($event)" required>
+                        <div *ngIf="rollnoRef.invalid && rollnoRef.touched">
+                            <span class="label label-danger" *ngIf="rollnoRef.errors.required">
+                                Please Enter Roll Number
+                            </span>
+                        </div>
+                    </div> 
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                            <label for="gender"><b>Gender</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <div class="row">
+                                        <div class="col-lg-3 col-sm-3 col-xs-12">
+                                                Male
+                                        </div>
+                                        <div class="col-lg-3 col-sm-3 col-xs-12">
+                                             <input type="radio" [(ngModel)] ="gender" name="gender" value="male" ngModel >
+                                        </div> 
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-3 col-sm-3 col-xs-12">
+                                                Female
+                                        </div>
+                                        <div class="col-lg-3 col-sm-3 col-xs-12">
+                                          <input type="radio" [(ngModel)] = "gender" name="gender" value="female" ngModel >
+                                        </div>  
+                                </div>
+                        </div>
+                    
+                </div>
+    
+                <div class="row">
+                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                            <label for="age"><b>Age</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                            <input type="number" id="age" name="age" placeholder="Age..." 
+                            class="form-control form-control-sm quantity" ngModel [value]="sAge" 
+                            #ageRef="ngModel"  required>
+                            <div *ngIf="ageRef.invalid && ageRef.touched">
+                                <span class="label label-danger" *ngIf="ageRef.errors.required">
+                                    Please Enter Age
+                                </span>
+                            </div>
+                        </div>
+                        
+                </div>
+
+                <div class="row">
+                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                            <label for="photo"><b>Photo</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                        <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+                                        <div *ngIf="photoRef.invalid && photoRef.touched">
+                                            <span class="label label-danger" *ngIf="photoRef.errors.required">
+                                                Please Upload Photo
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-12">
+                                    <button type="button" style="width: max-content" [disabled]="studentForm.invalid" value="Upload" (click)="onUpload($event)" >Upload</button>
+                            </div>
+                        </div>
+                <div class="row">
+                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                <label for="ParentName"><b>Parent Name</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <input type="text" id="pname" name="pname" class="form-control form-control-sm" placeholder="Parent Name.." ngModel [value]="pName" #pnameRef="ngModel" required>
+                                <div *ngIf="pnameRef.invalid && pnameRef.touched">
+                                    <span class="label label-danger" *ngIf="pnameRef.errors.required">
+                                        Please Enter Parent Name
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                <label for="Email"><b>Email</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <input type="text" id="email" name="email" class="form-control form-control-sm" placeholder="Email Address.." ngModel [value]="pEmail" #emailRef="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <div *ngIf="emailRef.invalid && emailRef.touched">
+                                    <span class="label label-danger" *ngIf="emailRef.errors.required">
+                                        Please Enter Email Address
+                                    </span>
+                                    <span class="label label-danger" *ngIf="emailRef.errors && emailRef.errors.pattern">
+                                            Please Enter Valid Email Address
+                                    </span>
+                                </div>
+                        </div>
+
+                </div>
+                <div class="row">
+                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                <label for="Address"><b>Address</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <textarea id="address" name="address" placeholder="Address..." class="textAreaSize" ngModel [value]="paddress" #addressRef="ngModel" required ></textarea>
+                                <div *ngIf="addressRef.invalid && addressRef.touched">
+                                    <span class="label label-danger" *ngIf="addressRef.errors.required">
+                                        Please Enter Address
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-3 col-xs-12">
+                                <label for="Mobile No"><b>Mobile No.</b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                                <input type="text" id="mobile" name="mobile" class="form-control form-control-sm" placeholder="Mobile Number.." ngModel [value]="pMobile" #mobileRef="ngModel" required pattern="^(\+\d{1,3}[- ]?)?\d{10}$">
+                                <div *ngIf="mobileRef.invalid && mobileRef.touched">
+                                    <span class="label label-danger" *ngIf="mobileRef.errors.required">
+                                        Please Enter Mobile Number
+                                    </span>
+                                    <span class="label label-danger" *ngIf="mobileRef.errors.pattern">
+                                            Please Enter Valid Mobile Number
+                                        </span>
+
+                                </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                        <div class="col-lg-2 col-sm-2 col-xs-12">
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                    
+                        <button type="submit" value="Submit" [disabled]="isNotUploaded">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+     </div>

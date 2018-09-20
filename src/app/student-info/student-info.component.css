@@ -1,0 +1,56 @@
+.img-profile
+{
+    height:200px;
+    width:200px;
+    margin: 40px;
+}
+
+.margin 
+{
+ margin  : 10 px;
+}
+
+.progressBar
+{
+    height: 2rem;
+    width:100px;
+}
+.allPage
+{
+  padding: 10px;
+  margin:10px;
+}
+td{
+    text-align: left;
+}
+.studContainer{
+   
+    padding-top: 40px;
+    border:3px solid #ddd;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+.studImg{
+    width: 180px;
+    height: 180px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.progDisp{
+    padding-top: 40px;
+    border:3px solid #ddd;
+    padding: 20px;
+}
+.proDisp2 {
+    font-style: Serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.container{
+    margin-top: 30px;
+}
+.progBar{
+    padding-bottom: 10px;
+}

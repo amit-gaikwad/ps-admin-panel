@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="loading" *ngIf="isUploading || isSubmiting">Loading&#8230;</div>
+    <div class="progDisp">
+        
+<form #eventForm="ngForm" (ngSubmit)="onProgramSubmit(eventForm)" >
+  
+        <div class="proDisp2"> Add Event</div>
+        <hr>
+        <div class="row"> 
+      <div class="col-lg-2 col-sm-2 col-xs-12">
+          <label for="title"><b>Title</b></label>
+      </div>
+      <div class="col-lg-4 col-sm-4 col-xs-12">
+          <input type="text" id="title" name="title" class="form-control form-control-sm" placeholder="Enter title.." ngModel [value]="title" #titleRef="ngModel" required>
+              <div *ngIf="titleRef.invalid && titleRef.touched">
+                    <span class="label label-danger" *ngIf="titleRef.errors.required">
+                            Please give title
+                        </span>
+              </div>
+      </div>
+  </div>
+ 
+  <div class="row">
+      <div class="col-lg-2 col-sm-2 col-xs-12"> 
+          <label for="description"><b>Description</b></label>
+      </div>
+      <div class="col-lg-4 col-sm-4 col-xs-12">
+          <textarea id="description" name="description" placeholder="Enter File description..."  ngModel [value]="description" #descRef="ngModel" required></textarea>
+          <div *ngIf="descRef.invalid && descRef.touched">
+                <span class="label label-danger" *ngIf="descRef.errors.required">
+                        Please give description
+                    </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-2 col-sm-2 col-xs-12">
+          <label for="upload"><b>Photo</b></label>
+      </div>
+      <div class="col-lg-4 col-sm-4 col-xs-12">
+            <input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+            <div *ngIf="photoRef.invalid && photoRef.touched">
+                <span class="label label-danger" *ngIf="photoRef.errors.required">
+                    Please Upload Photo
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-xs-12">
+        <button type="button" style="width: max-content" [disabled]="eventForm.invalid" value="Upload" (click)="onUpload($event)" >Upload</button>
+</div>
+</div>
+
+  <div class="row">
+    <hr>
+  </div>
+  <div class="row">
+      <div class="col-lg-2 col-sm-2 col-xs-12"> 
+      </div>
+     
+     <div class="col-lg-4 col-sm-4 col-xs-12">
+        <button type="submit" value="Submit" [disabled]="isNotUploaded" class="Submitbutton">Submit</button>
+     </div>
+  </div>
+   
+</form>
+    </div>
+</div>
