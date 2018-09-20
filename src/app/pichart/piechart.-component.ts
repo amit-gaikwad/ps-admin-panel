@@ -19,7 +19,7 @@ export class PieChartComponent{
                   plotShadow : false
                },
           title : {
-                    text : "Pie Chart Example Demo"
+                    text : "Pie Chart "
               },
           tooltip :{
                       pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -30,17 +30,20 @@ export class PieChartComponent{
                                  cursor : "pointer",
                                  dataLabels : {
                                       enabled : true,
-                                      format : "<b>{point.name}%</b>: {point.percentage:.1f} %",
+                                      format : "{point.name}: {point.y: .1f%} ",
                                       style : {
-                                            color : "black" 
+                                            color : "blue" 
                                         }
                     
                                     }
                                 }
                         },
+                        credits: {
+                            enabled: false
+                          },
           series : [{
                    type : "pie",
-                   name : "pie chart Example",
+                   name : "pie chart ",
                    data: [
                           {
                            name: 'Chrome',
@@ -48,11 +51,11 @@ export class PieChartComponent{
                            sliced: false,
                            selected: true
                           },
-                        ['Firefox',   45.0],
-                        ['IE',       26.8],
-                        ['Safari',    8.5],
-                        ['Opera',     6.2],
-                        ['Others',   0.7]
+                        ['Physical',   45.0],
+                        ['Education',       26.8],
+                        ['Group',    8.5],
+                        ['Creativity',     6.2],
+                        ['Communication',   0.7]
                     ]
                 }]
         

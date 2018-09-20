@@ -82,7 +82,7 @@ imgUpload,.imgDescription {
   
   .container {
       border-radius: 5px;
-      
+      margin-top: 70px;
       padding: 20px;
       width: 100%;
   }
