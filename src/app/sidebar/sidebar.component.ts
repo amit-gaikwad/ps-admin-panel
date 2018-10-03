@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { isLoweredSymbol } from '@angular/compiler';
 
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -10,14 +11,15 @@ export class SidebarComponent implements OnInit {
 
   sId = "";
   isAdmin = "";
-  isLoggedIn = "";
-  constructor() { }
+  //isLoggedIn = "";
+
   
-  
+  constructor( private auth : AuthService) { }
+
   ngOnInit() {
     this.sId = localStorage.getItem("sId");
     this.isAdmin = localStorage.getItem("isAdmin");
-    this.isLoggedIn = localStorage.getItem("isLoggedIn");
+   // this.isLoggedIn = localStorage.getItem("isLoggedIn");
   }
 
 }

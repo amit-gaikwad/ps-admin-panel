@@ -1,7 +1,7 @@
 
-<ul *ngIf="isLoggedIn == 'true'" class="sidebar navbar-nav">
+<ul class="sidebar navbar-nav" *ngIf="auth.isLoggednIn()">
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/charts']" routerLinkActive="active">
+        <a class="nav-link"  [routerLink]="['/charts']" routerLinkActive="active">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span>
         </a>
@@ -22,7 +22,7 @@
     </li>
     <li *ngIf="isAdmin == 'true' " class="nav-item">
       <a class="nav-link" [routerLink]="['/studentlist']" routerLinkActive="active">
-          <i class="fas fa-fw fa-chart-area"></i>
+           <i class="fas fa-fw fa-chart-area"></i>
           <span>Student List</span>
       </a>
      </li>
