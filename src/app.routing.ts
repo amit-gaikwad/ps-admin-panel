@@ -2,6 +2,8 @@ import { NgModule   } from '@angular/core';
 
 import { RouterModule , Routes } from '@angular/router';
 import {AppComponent} from './app/app.component' ;
+import { AuthService } from './app/auth.service';
+import { AuthGuard } from './app/auth.guard';
 import {  StudentComponent } from './app/student/student.component';
 import { ChartsComponent } from './app/charts/charts.component';
 import { NoticePostComponent} from './app/notice-post/notice-post.component';
@@ -17,17 +19,18 @@ import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.
 
   const routes : Routes = [ 
     { path : "", redirectTo : 'login', pathMatch: 'full'},
-    { path : 'student' , component : StudentComponent },
-    { path : 'charts' ,component : ChartsComponent }, 
-    { path : 'noticepost', component : NoticePostComponent },
-    { path : "noticedisplay", component: NoticeDisplayCompnent},
-    { path :'programe', component : EventComponent},
-    { path : 'gallery', component: SchoolGalleryComponent },
-    { path : 'studentlist', component: StudentListComponent },
-    { path : 'studentinfo', component: StudentInfoComponent },
+    { path : 'student' , component : StudentComponent , canActivate: 
+    [AuthGuard] },
+    { path : 'charts' ,component : ChartsComponent, canActivate: [AuthGuard]}, 
+    { path : 'noticepost', component : NoticePostComponent,  canActivate: [AuthGuard]},
+    { path : "noticedisplay", component: NoticeDisplayCompnent, canActivate: [AuthGuard]},
+    { path :'programe', component : EventComponent, canActivate: [AuthGuard]},
+    { path : 'gallery', component: SchoolGalleryComponent, canActivate: [AuthGuard] },
+    { path : 'studentlist', component: StudentListComponent, canActivate: [AuthGuard] },
+    { path : 'studentinfo', component: StudentInfoComponent, canActivate: [AuthGuard] },
     { path : 'login', component : LoginComponent},
-    {path : 'dashboard' , component:DashboardComponent},
-    {path : 'parentdashboard' , component: ParentDashboardComponent}
+    {path : 'dashboard' , component:DashboardComponent, canActivate: [AuthGuard]},
+    {path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [AuthGuard]}
 
 
 
