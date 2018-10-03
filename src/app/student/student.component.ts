@@ -34,7 +34,7 @@ export class StudentComponent implements OnInit {
   
   studentDetails = [];
 
-  constructor(private studentService: StudentService , private parentService : ParentService ) {
+  constructor(private studentService: StudentService) {
     
 
   }

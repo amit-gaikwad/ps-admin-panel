@@ -7,4 +7,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'app';
+  constructor(){
+  }
 }

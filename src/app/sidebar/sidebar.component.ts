@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isLoweredSymbol } from '@angular/compiler';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  sId = "";
+  isAdmin = "";
+  isLoggedIn = "";
   constructor() { }
-
+  
+  
   ngOnInit() {
+    this.sId = localStorage.getItem("sId");
+    this.isAdmin = localStorage.getItem("isAdmin");
+    this.isLoggedIn = localStorage.getItem("isLoggedIn");
   }
 
 }

@@ -1,62 +1,57 @@
 
-<ul class="sidebar navbar-nav">
+<ul *ngIf="isLoggedIn == 'true'" class="sidebar navbar-nav">
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/charts']" routerLinkActive="active">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span>
         </a>
        </li>
-       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/parentdashboard']" routerLinkActive="active">
+       <li *ngIf="isAdmin == 'false' " class="nav-item">
+        <a class="nav-link" [routerLink]="['/parentdashboard']" [queryParams]="{sId : sId}" routerLinkActive="active">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Parent Dashboard</span>
         </a>
        </li>
 
 
-    <li class="nav-item">
+    <li *ngIf="isAdmin == 'true' "class="nav-item">
      <a class="nav-link" [routerLink]="['/student']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
          <span>Admit Student</span>
      </a>
     </li>
-    <li class="nav-item">
+    <li *ngIf="isAdmin == 'true' " class="nav-item">
       <a class="nav-link" [routerLink]="['/studentlist']" routerLinkActive="active">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Student List</span>
       </a>
      </li>
     
-    <li class="nav-item">
-       <a class="nav-link" routerLink="/noticepost">
+    <li *ngIf="isAdmin == 'true' " class="nav-item">
+       <a class="nav-link" [routerLink] ="['/noticepost']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
          <span>Notice Upload</span>
        </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" routerLink="/noticedisplay">
+        <a class="nav-link" [routerLink] = "['/noticedisplay']" routerLinkActive="active">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Notice Board</span>
         </a>
      </li>
 
-    <li class="nav-item">
-     <a class="nav-link" routerLink="/programe">
+    <li *ngIf="isAdmin == 'true' " class="nav-item" >
+     <a class="nav-link" [routerLink] = "['/programe']" routerLinkActive="active">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Event Upload</span>
        </a>
     </li>
     <li class="nav-item">
-       <a class="nav-link" routerLink="/gallery">
+       <a class="nav-link" [routerLink] = "['/gallery']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
          <span>School Gallery</span>
        </a>
      </li>
-     <li class="nav-item">
-       <a class="nav-link" routerLink="/website">
-         <i class="fas fa-fw fa-chart-area"></i>
-         <span>Website</span>
-       </a>
-    </li>
+     
   </ul> 

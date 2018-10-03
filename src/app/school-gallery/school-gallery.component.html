@@ -1,7 +1,7 @@
 
 <div class="container">
         <div class="loading" *ngIf="isUploading || isSubmiting">Loading&#8230;</div>
-    <div class="progDisp">
+    <div *ngIf="isAdmin == 'true'" class="progDisp">
       <form #galleryForm="ngForm" (ngSubmit)="onSubmit(galleryForm)" >
         <div class="proDisp2"> Upload Images</div>
         <hr>
@@ -82,7 +82,7 @@
             <img [src]="item.img_url" class="imgSize"/>
             <div class="row">
                 
-                <button class="Deletebutton">Delete</button>
+                <button *ngIf="isAdmin == 'true'" class="Deletebutton">Delete</button>
                 <button class="viewbutton">View</button>
 
             </div>

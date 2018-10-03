@@ -10,13 +10,13 @@ import { EventComponent} from './app/event/event.component';
 import { SchoolGalleryComponent } from './app/school-gallery/school-gallery.component';
 import { StudentListComponent } from './app/student-list/student-list.component';
 import { StudentInfoComponent } from './app/student-info/student-info.component';
-import { LoginComponent} from './app/login/login.component';
+import { ParentLoginComponent} from './app/parent-login/parent-login.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
-import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util';
 import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.component';
+import { AdminLoginComponent } from './app/admin-login/admin-login.component';
 
   const routes : Routes = [ 
-    { path : "", redirectTo : 'login', pathMatch: 'full'},
+    { path : "", redirectTo : 'parentlogin', pathMatch: 'full'},
     { path : 'student' , component : StudentComponent },
     { path : 'charts' ,component : ChartsComponent }, 
     { path : 'noticepost', component : NoticePostComponent },
@@ -25,9 +25,10 @@ import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.
     { path : 'gallery', component: SchoolGalleryComponent },
     { path : 'studentlist', component: StudentListComponent },
     { path : 'studentinfo', component: StudentInfoComponent },
-    { path : 'login', component : LoginComponent},
     {path : 'dashboard' , component:DashboardComponent},
-    {path : 'parentdashboard' , component: ParentDashboardComponent}
+    {path : 'parentdashboard' , component: ParentDashboardComponent},
+    { path : 'parentlogin', component : ParentLoginComponent},
+    {path : 'adminlogin' , component  : AdminLoginComponent}
 
 
 
@@ -45,7 +46,7 @@ import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.
 
     export class AppRouting {}
     export const Components = [AppComponent, StudentComponent, NoticePostComponent,
-                               NoticeDisplayCompnent, LoginComponent, StudentInfoComponent,
+                               NoticeDisplayCompnent, ParentLoginComponent, StudentInfoComponent,
                                StudentListComponent, EventComponent, SchoolGalleryComponent,
                                DashboardComponent]
 

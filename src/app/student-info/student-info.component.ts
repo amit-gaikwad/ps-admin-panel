@@ -28,7 +28,7 @@ export class StudentInfoComponent implements OnInit {
         this.student = data;
        });
       }else{
-        this.studentId = "5b90e3397c284153d600d0d9" ;//find parent's student id and assign
+        this.studentId = localStorage.getItem("sId");//find parent's student id and assign
         this.studentService.getById(this.studentId).subscribe((data) => {
           this.student = data;
          });

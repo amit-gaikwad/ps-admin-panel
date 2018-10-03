@@ -26,10 +26,12 @@ import { SchoolGalleryComponent } from './school-gallery/school-gallery.componen
 import { HttpClientModule } from '@angular/common/http';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentService } from './Services/student.service';
-import { LoginComponent } from './login/login.component';
+import { ParentLoginComponent } from './parent-login/parent-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ParentDashboardComponent } from './parent-dashboard/parent-dashboard.component';
 import { ParentService } from './Services/parent.service';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminService } from './Services/admin.service';
 
 
 
@@ -50,9 +52,10 @@ import { ParentService } from './Services/parent.service';
     EventComponent,
     SchoolGalleryComponent,
     StudentListComponent,
-    LoginComponent,
+    ParentLoginComponent,
     DashboardComponent,
-    ParentDashboardComponent
+    ParentDashboardComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,7 @@ import { ParentService } from './Services/parent.service';
     
    
   ],
-  providers: [ NoticeService, ProgramService, GalleryService, StudentService, ParentService ],
+  providers: [AdminService, NoticeService, ProgramService, GalleryService, StudentService, ParentService ],
    
   
   bootstrap: [AppComponent]

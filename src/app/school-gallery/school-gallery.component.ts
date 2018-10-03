@@ -10,7 +10,7 @@ declare var AWS: any;
   templateUrl: './school-gallery.component.html',
   styleUrls: ['./school-gallery.component.css','../../assets/css/loading-animation.css']
 })
-export class SchoolGalleryComponent{
+export class SchoolGalleryComponent implements OnInit{
 
   selectedFiles: FileList;
   eProg = [];
@@ -22,6 +22,11 @@ export class SchoolGalleryComponent{
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
+  isAdmin = "";
+
+    ngOnInit(){
+      this.isAdmin = localStorage.getItem("isAdmin");
+    }  
 
   constructor(private galleryService: GalleryService) { 
       galleryService.getAll().subscribe(
