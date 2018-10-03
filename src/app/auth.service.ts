@@ -9,19 +9,15 @@ export class AuthService {
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token)
   }
+
   getToken() {
     return localStorage.getItem("LoggedInUser")
   }
+
   isLoggednIn() {
-    if(localStorage.getItem("Admin")==="Login")
-    {
-      return false;
-    }
-    else
-    {
-     return  true;
-    }
+    return (localStorage.getItem("isLoggedIn") === "true")
   }
+
   logout() {
     localStorage.removeItem("LoggedInUser");
     this.myRoute.navigate(["Login"]);
