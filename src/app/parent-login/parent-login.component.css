@@ -8,6 +8,22 @@
  overflow: hidden;
   padding: 170px 0 230px 0;
 } 
+.label-danger {
+  background-color: #d9534f;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
 
 /* style inputs and link buttons */
 input,
@@ -103,6 +119,7 @@ input[type=password] {
   flex: auto;
   background-color: #4CAF50;
 }
+
 
 .progDisp{
  

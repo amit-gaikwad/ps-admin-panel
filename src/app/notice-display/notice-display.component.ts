@@ -1,6 +1,7 @@
  import {Component} from '@angular/core';
 import { NoticeService } from '../Services/notice.service';
 import { RouterModule , Routes, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-notice-display',
@@ -10,7 +11,7 @@ import { RouterModule , Routes, Router } from '@angular/router';
 export class NoticeDisplayCompnent {
     eNotices = [];
     noticeId = 1;
-    constructor(private noticeService: NoticeService, private router: Router) {
+    constructor(private noticeService: NoticeService, private router: Router, private auth : AuthService) {
         noticeService.getAll().subscribe((data) => {
                 this.eNotices = data;
                 }

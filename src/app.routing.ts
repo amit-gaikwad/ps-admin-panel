@@ -2,6 +2,10 @@ import { NgModule   } from '@angular/core';
 
 import { RouterModule , Routes } from '@angular/router';
 import {AppComponent} from './app/app.component' ;
+import { AuthService } from './app/auth.service';
+import { AuthGuard } from './app/auth.guard';
+import {AdminAuthGuard} from './app/admin-auth.guard';
+
 import {  StudentComponent } from './app/student/student.component';
 import { ChartsComponent } from './app/charts/charts.component';
 import { NoticePostComponent} from './app/notice-post/notice-post.component';
@@ -10,25 +14,28 @@ import { EventComponent} from './app/event/event.component';
 import { SchoolGalleryComponent } from './app/school-gallery/school-gallery.component';
 import { StudentListComponent } from './app/student-list/student-list.component';
 import { StudentInfoComponent } from './app/student-info/student-info.component';
-import { LoginComponent} from './app/login/login.component';
+import { ParentLoginComponent} from './app/parent-login/parent-login.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
-import { dashCaseToCamelCase } from '../node_modules/@angular/compiler/src/util';
 import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.component';
+import { AdminLoginComponent } from './app/admin-login/admin-login.component';
+import { SidebarComponent } from './app/sidebar/sidebar.component';
+import { ParentAuthGuard } from './app/parent-auth.guard';
 
   const routes : Routes = [ 
-    { path : "", redirectTo : 'login', pathMatch: 'full'},
-    { path : 'student' , component : StudentComponent },
-    { path : 'charts' ,component : ChartsComponent }, 
-    { path : 'noticepost', component : NoticePostComponent },
-    { path : "noticedisplay", component: NoticeDisplayCompnent},
-    { path :'programe', component : EventComponent},
-    { path : 'gallery', component: SchoolGalleryComponent },
-    { path : 'studentlist', component: StudentListComponent },
-    { path : 'studentinfo', component: StudentInfoComponent },
-    { path : 'login', component : LoginComponent},
-    {path : 'dashboard' , component:DashboardComponent},
-    {path : 'parentdashboard' , component: ParentDashboardComponent}
-
+    { path : "", redirectTo : 'parentlogin', pathMatch: 'full'},
+    { path : 'student' , component : StudentComponent , canActivate: [AdminAuthGuard] },
+    { path : 'charts' ,component : ChartsComponent, canActivate: [ParentAuthGuard]}, 
+    { path : 'noticepost', component : NoticePostComponent,  canActivate: [AdminAuthGuard]},
+    { path : "noticedisplay", component: NoticeDisplayCompnent, canActivate: [AuthGuard]},
+    { path :'programe', component : EventComponent, canActivate: [AdminAuthGuard]},
+    { path : 'gallery', component: SchoolGalleryComponent, canActivate: [AuthGuard ]},
+    { path : 'studentlist', component: StudentListComponent, canActivate: [AdminAuthGuard] },
+    { path : 'studentinfo', component: StudentInfoComponent, canActivate: [AuthGuard] },
+    {path : 'dashboard' , component:DashboardComponent, canActivate: [AuthGuard]},
+    {path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [ParentAuthGuard]},
+    { path : 'sidebar', component : SidebarComponent},
+    { path : 'parentlogin', component : ParentLoginComponent},
+    {path : 'adminlogin' , component  : AdminLoginComponent}
 
 
     // { path:'NoticeBoard' ,component: },
@@ -45,7 +52,7 @@ import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.
 
     export class AppRouting {}
     export const Components = [AppComponent, StudentComponent, NoticePostComponent,
-                               NoticeDisplayCompnent, LoginComponent, StudentInfoComponent,
+                               NoticeDisplayCompnent, ParentLoginComponent, StudentInfoComponent,
                                StudentListComponent, EventComponent, SchoolGalleryComponent,
                                DashboardComponent]
 

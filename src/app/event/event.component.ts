@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProgramService } from '../Services/programe.service';
 import { NgForm } from '@angular/forms';
 import { Event } from '../model/event';
+import { AppConstant } from '../constant/app.constant';
 declare var AWS: any;
 
 @Component({
@@ -31,9 +32,9 @@ export class EventComponent {
     const file = this.selectedFiles.item(0);
     if (file) {
         AWS.config.update({
-            'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-            'secretAccessKey': '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',
-            'region': 'us-west-2'
+          'accessKeyId': AppConstant.awsAccessKeyId,
+          'secretAccessKey': AppConstant.awsSecretAccessKey,
+          'region': AppConstant.awsRegion
         });
         const s3 = new AWS.S3();
         const params = {
@@ -52,7 +53,7 @@ export class EventComponent {
               this.isNotUploaded = false;
               this.isUploading = false;
 
-              this.pdfUrl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
+              this.pdfUrl =AppConstant.awsPhotoUrl+file.name;
             }
         });
     } else {
