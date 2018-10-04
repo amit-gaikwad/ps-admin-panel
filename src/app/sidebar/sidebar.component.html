@@ -6,7 +6,7 @@
             <span>Charts</span>
         </a>
        </li>
-       <li *ngIf="isAdmin == 'false' " class="nav-item">
+       <li *ngIf="!auth.isAdminActive()" class="nav-item">
         <a class="nav-link" [routerLink]="['/parentdashboard']" [queryParams]="{sId : sId}" routerLinkActive="active">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Parent Dashboard</span>
@@ -14,20 +14,20 @@
        </li>
 
 
-    <li *ngIf="isAdmin == 'true' "class="nav-item">
+    <li *ngIf="auth.isAdminActive()" class="nav-item">
      <a class="nav-link" [routerLink]="['/student']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
          <span>Admit Student</span>
      </a>
     </li>
-    <li *ngIf="isAdmin == 'true' " class="nav-item">
+    <li *ngIf="auth.isAdminActive()" class="nav-item">
       <a class="nav-link" [routerLink]="['/studentlist']" routerLinkActive="active">
            <i class="fas fa-fw fa-chart-area"></i>
           <span>Student List</span>
       </a>
      </li>
     
-    <li *ngIf="isAdmin == 'true' " class="nav-item">
+    <li *ngIf="auth.isAdminActive()" class="nav-item">
        <a class="nav-link" [routerLink] ="['/noticepost']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
          <span>Notice Upload</span>
@@ -41,7 +41,7 @@
         </a>
      </li>
 
-    <li *ngIf="isAdmin == 'true' " class="nav-item" >
+    <li *ngIf="auth.isAdminActive()" class="nav-item" >
      <a class="nav-link" [routerLink] = "['/programe']" routerLinkActive="active">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Event Upload</span>

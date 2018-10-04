@@ -4,6 +4,8 @@ import { RouterModule , Routes } from '@angular/router';
 import {AppComponent} from './app/app.component' ;
 import { AuthService } from './app/auth.service';
 import { AuthGuard } from './app/auth.guard';
+import {AdminAuthGuard} from './app/admin-auth.guard';
+
 import {  StudentComponent } from './app/student/student.component';
 import { ChartsComponent } from './app/charts/charts.component';
 import { NoticePostComponent} from './app/notice-post/notice-post.component';
@@ -16,21 +18,24 @@ import { ParentLoginComponent} from './app/parent-login/parent-login.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
 import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.component';
 import { AdminLoginComponent } from './app/admin-login/admin-login.component';
+import { SidebarComponent } from './app/sidebar/sidebar.component';
+import { ParentAuthGuard } from './app/parent-auth.guard';
 
   const routes : Routes = [ 
     { path : "", redirectTo : 'parentlogin', pathMatch: 'full'},
-    { path : 'student' , component : StudentComponent , canActivate: [AuthGuard] },
-    { path : 'charts' ,component : ChartsComponent, canActivate: [AuthGuard]}, 
-    { path : 'noticepost', component : NoticePostComponent,  canActivate: [AuthGuard]},
+    { path : 'student' , component : StudentComponent , canActivate: [AdminAuthGuard] },
+    { path : 'charts' ,component : ChartsComponent, canActivate: [ParentAuthGuard]}, 
+    { path : 'noticepost', component : NoticePostComponent,  canActivate: [AdminAuthGuard]},
     { path : "noticedisplay", component: NoticeDisplayCompnent, canActivate: [AuthGuard]},
-    { path :'programe', component : EventComponent, canActivate: [AuthGuard]},
-    { path : 'gallery', component: SchoolGalleryComponent, canActivate: [AuthGuard] },
-    { path : 'studentlist', component: StudentListComponent, canActivate: [AuthGuard] },
+    { path :'programe', component : EventComponent, canActivate: [AdminAuthGuard]},
+    { path : 'gallery', component: SchoolGalleryComponent, canActivate: [AuthGuard ]},
+    { path : 'studentlist', component: StudentListComponent, canActivate: [AdminAuthGuard] },
     { path : 'studentinfo', component: StudentInfoComponent, canActivate: [AuthGuard] },
     {path : 'dashboard' , component:DashboardComponent, canActivate: [AuthGuard]},
-    {path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [AuthGuard]},
-    { path : 'parentlogin', component : ParentLoginComponent, canActivate: [AuthGuard]},
-    {path : 'adminlogin' , component  : AdminLoginComponent, canActivate: [AuthGuard]}
+    {path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [ParentAuthGuard]},
+    { path : 'sidebar', component : SidebarComponent},
+    { path : 'parentlogin', component : ParentLoginComponent},
+    {path : 'adminlogin' , component  : AdminLoginComponent}
 
 
     // { path:'NoticeBoard' ,component: },

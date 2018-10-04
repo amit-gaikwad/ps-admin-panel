@@ -5,6 +5,7 @@ import {Student} from '../model/student';
 import { Parent } from '../model/parent';
 import { NgForm } from '@angular/forms';
 import { ParentService } from '../Services/parent.service';
+import { AppConstant } from '../constant/app.constant';
 
 declare var AWS: any;
 
@@ -61,9 +62,9 @@ onUpload (event) {
 
   if (file) {
       AWS.config.update({
-          'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-          'secretAccessKey': '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',
-          'region': 'us-west-2'
+        'accessKeyId': AppConstant.awsAccessKeyId,
+        'secretAccessKey': AppConstant.awsSecretAccessKey,
+        'region': AppConstant.awsRegion
       });
       const s3 = new AWS.S3();
       const params = {
@@ -80,7 +81,7 @@ onUpload (event) {
           } else {
             console.log('Successfully uploaded data' , res);
             this.isNotUploaded = false;
-            this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
+            this.photourl = AppConstant.awsPhotoUrl+file.name;
             this.isUploading = false;
           }
         });

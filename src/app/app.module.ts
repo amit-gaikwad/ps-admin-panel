@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { AdminAuthGuard } from './admin-auth.guard';
+
 import {  RouterModule } from '@angular/router';
 import { StudentComponent } from './student/student.component';
 import { AppRouting,Components } from '../app.routing';

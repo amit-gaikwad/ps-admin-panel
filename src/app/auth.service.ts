@@ -15,7 +15,11 @@ export class AuthService {
   }
 
   isLoggednIn() {
-    return (localStorage.getItem("isLoggedIn") == "true")
+    return (localStorage.getItem("isLoggedIn") === "true")
+  }
+
+  isAdminActive() {
+    return (localStorage.getItem("isAdmin") === "true")
   }
 
   logout() {

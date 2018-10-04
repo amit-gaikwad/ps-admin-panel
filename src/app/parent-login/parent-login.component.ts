@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ParentService } from '../Services/parent.service';
 import { Router } from '@angular/router';
+import {SidebarComponent} from '../sidebar/sidebar.component';
 
 @Component({
     selector:"app-login-component",

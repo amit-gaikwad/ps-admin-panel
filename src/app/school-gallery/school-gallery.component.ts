@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GalleryService } from'../Services/gallery.service';
 import { NgForm } from '@angular/forms';
 import {Gallery} from '../model/gallery';
+import { AppConstant } from '../constant/app.constant';
+import { AuthService } from '../auth.service';
 
 declare var AWS: any;
 
@@ -22,13 +24,11 @@ export class SchoolGalleryComponent implements OnInit{
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
-  isAdmin = "";
 
     ngOnInit(){
-      this.isAdmin = localStorage.getItem("isAdmin");
     }  
 
-  constructor(private galleryService: GalleryService) { 
+  constructor(private galleryService: GalleryService, private auth : AuthService) { 
       galleryService.getAll().subscribe(
         (data)=>
         {
@@ -46,9 +46,9 @@ export class SchoolGalleryComponent implements OnInit{
     const file = this.selectedFiles.item(0);
     if (file) {
       AWS.config.update({
-          'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-          'secretAccessKey': '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',
-          'region': 'us-west-2'
+          'accessKeyId': AppConstant.awsAccessKeyId,
+          'secretAccessKey': AppConstant.awsSecretAccessKey,
+          'region': AppConstant.awsRegion
       });
       const s3 = new AWS.S3();
       const params = {
@@ -65,7 +65,8 @@ export class SchoolGalleryComponent implements OnInit{
           } else {
             console.log('Successfully uploaded data' , res);
             this.isNotUploaded = false;
-            this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
+            // let num = Math.floor((Math.random() * 100000) + 1);
+            this.photourl = AppConstant.awsPhotoUrl+file.name;
             this.isUploading = false;
           }
         });

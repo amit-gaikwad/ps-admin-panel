@@ -34,6 +34,7 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
+    margin-top: 80px;
     padding: 20px;
     width: 100%;
 }
@@ -73,9 +74,7 @@ button {
     font-size: 25px;
     margin-bottom: 20px;
 }
-.container{
-    margin-top: 30px;
-}
+
 
 .form-control {
     display: block;

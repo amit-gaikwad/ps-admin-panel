@@ -61,7 +61,7 @@ imgUpload,.imgDescription {
   
   .container {
       border-radius: 5px;
-      
+      margin-top: 80px;
       padding: 20px;
       width: 100%;
   }
@@ -149,7 +149,4 @@ imgUpload,.imgDescription {
     font-style: Serif;
     font-size: 25px;
     margin-bottom: 20px;
-}
-.container{
-    margin-top: 30px;
 }

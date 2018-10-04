@@ -8,18 +8,13 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+    
   sId = "";
-  isAdmin = "";
-  //isLoggedIn = "";
 
-  
   constructor( private auth : AuthService) { }
 
   ngOnInit() {
     this.sId = localStorage.getItem("sId");
-    this.isAdmin = localStorage.getItem("isAdmin");
-   // this.isLoggedIn = localStorage.getItem("isLoggedIn");
-  }
+    }
 
 }
