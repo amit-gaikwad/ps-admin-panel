@@ -11,7 +11,8 @@ import { Parent } from '../model/parent';
 export class StudentService {
      studentUrl= '';
     constructor(private http: HttpClient) {
-      this.studentUrl = AppConstant.serverUrl + 'student';
+      //this.studentUrl = AppConstant.serverUrl + 'student';
+      this.studentUrl = "http://localhost:4200/assets/student.json"
     }
 
 
@@ -34,4 +35,5 @@ export class StudentService {
  {
    return this.http.get(this.studentUrl+'/'+ids).pipe(map((res:Response) => res)); 
 }
+
 }

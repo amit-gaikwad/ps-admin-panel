@@ -20,6 +20,7 @@ import {ParentDashboardComponent} from './app/parent-dashboard/parent-dashboard.
 import { AdminLoginComponent } from './app/admin-login/admin-login.component';
 import { SidebarComponent } from './app/sidebar/sidebar.component';
 import { ParentAuthGuard } from './app/parent-auth.guard';
+import { UploadMarksComponent } from './app/upload-marks/upload-marks.component';
 
   const routes : Routes = [ 
     { path : "", redirectTo : 'parentlogin', pathMatch: 'full'},
@@ -31,11 +32,12 @@ import { ParentAuthGuard } from './app/parent-auth.guard';
     { path : 'gallery', component: SchoolGalleryComponent, canActivate: [AuthGuard ]},
     { path : 'studentlist', component: StudentListComponent, canActivate: [AdminAuthGuard] },
     { path : 'studentinfo', component: StudentInfoComponent, canActivate: [AuthGuard] },
-    {path : 'dashboard' , component:DashboardComponent, canActivate: [AuthGuard]},
-    {path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [ParentAuthGuard]},
+    { path : 'dashboard' , component:DashboardComponent, canActivate: [AuthGuard]},
+    { path : 'parentdashboard' , component: ParentDashboardComponent, canActivate: [ParentAuthGuard]},
     { path : 'sidebar', component : SidebarComponent},
     { path : 'parentlogin', component : ParentLoginComponent},
-    {path : 'adminlogin' , component  : AdminLoginComponent}
+    { path : 'adminlogin' , component  : AdminLoginComponent },
+    { path : 'studentmarks', component : UploadMarksComponent}
 
 
     // { path:'NoticeBoard' ,component: },
@@ -54,6 +56,6 @@ import { ParentAuthGuard } from './app/parent-auth.guard';
     export const Components = [AppComponent, StudentComponent, NoticePostComponent,
                                NoticeDisplayCompnent, ParentLoginComponent, StudentInfoComponent,
                                StudentListComponent, EventComponent, SchoolGalleryComponent,
-                               DashboardComponent]
+                               DashboardComponent, UploadMarksComponent]
 
     
