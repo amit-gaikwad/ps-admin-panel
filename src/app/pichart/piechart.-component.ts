@@ -33,11 +33,38 @@ export class PieChartComponent{
         if (this.studentId != undefined || this.studentId != null)
         {
             this.getMarks();
-        }else{
+        }
+        else
+        {
         this.studentId = localStorage.getItem("sId");//find parent's student id and assign
         this.getMarks();
               }
-              this.chart = new Chart({
+              
+    }
+    getMarks()
+    {
+        this.studentMarksService.getAll().subscribe(data =>{
+            console.log(this.studentId);
+            
+            data = data.filter((item) => {
+                return item.student_id === this.studentId;
+            });
+            console.log(data);
+                 var studentLatestMarks=data.pop();
+                 console.log(studentLatestMarks);
+                     this.Physical=studentLatestMarks.phyicalactivity;
+                     this.Group=studentLatestMarks.groupactivity;
+                     this.Education=studentLatestMarks.educational;
+                     this.Creativity=studentLatestMarks.creativity;
+                     this.Communication=studentLatestMarks.communication;
+                    this.loadChart();
+                }
+                
+            )
+        }
+
+        loadChart(){
+            this.chart = new Chart({
   
                 chart : {
                         type: "pie",
@@ -46,7 +73,7 @@ export class PieChartComponent{
                         plotShadow : false
                      },
                 title : {
-                          text : "Pie Chart "
+                          text : "Student Skills (Pie Chart)"
                     },
                 tooltip :{
                             pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -57,7 +84,7 @@ export class PieChartComponent{
                                        cursor : "pointer",
                                        dataLabels : {
                                             enabled : true,
-                                            format : "{point.name}: {point.y: .1f%} ",
+                                            format : "{point.name}: {point.y: .1f}% ",
                                             style : {
                                                   color : "blue" 
                                               }
@@ -70,14 +97,8 @@ export class PieChartComponent{
                                 },
                 series : [{
                          type : "pie",
-                         name : "pie chart ",
+                         name : "Student Skills (Pie Chart)",
                          data: [
-                                {
-                                 name: 'Chrome',
-                                 y: 12.8,
-                                 sliced: false,
-                                 selected: true
-                                },
                                 ['Physical',   this.Physical],
                                 ['Education',this.Education],
                                 ['Group',    this.Group],
@@ -88,23 +109,5 @@ export class PieChartComponent{
                       }]
               
               });
-    }
-    getMarks()
-    {
-        this.studentMarksService.getAll().subscribe(data  => {
-                data = data.filter((item) => {
-                     return (item._id == this.studentId);
-                 })
-                 console.log(data);
-                 var studentLatestMarks=data.pop();
-                     this.Physical=studentLatestMarks.phyicalactivity;
-                     this.Group=studentLatestMarks.groupactivity;
-                     this.Education=studentLatestMarks.educational;
-                     this.Creativity=studentLatestMarks.creativity;
-                     this.Communication=studentLatestMarks.communication;
-
-                }
-                
-            )
         }
     }
