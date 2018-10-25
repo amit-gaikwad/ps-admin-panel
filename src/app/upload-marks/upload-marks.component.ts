@@ -3,6 +3,7 @@ import { StudentService } from '../Services/student.service'
 import { StudentMarks } from '../model/studentmarks';
 import { NgForm } from '@angular/forms';
 import { Student } from '../model/student';
+import { StudentMarkService } from '../Services/studentmarks';
 
 @Component({
   selector: 'app-upload-marks',
@@ -16,16 +17,19 @@ export class UploadMarksComponent implements OnInit {
   studentId : number;
   studentname="";
   student : Student;
+  isSubmiting = false;
  
-  constructor(private studentService : StudentService) { }
+  constructor(private studentService : StudentService, private marksService : StudentMarkService) { }
 
   ngOnInit() {
     this.studentService.getAll().subscribe(data => { 
-      this.sortByName(data);
+    this.sortByName(data);
    });
   }
 
   onStudentMarksSubmit(val: NgForm){
+    this.isSubmiting = true;
+
     const studmarks = new StudentMarks;
     studmarks.communication=val.value.communication;
     studmarks.creativity=val.value.creativity;
@@ -35,6 +39,16 @@ export class UploadMarksComponent implements OnInit {
     studmarks.student_id=this.studentId;
     studmarks.assesmentdate=new Date();
 
+    this.marksService.create(studmarks).subscribe(
+      studentObj => {
+        val.reset();
+        this.isSubmiting = false;
+      },
+      error => {
+        console.log(error);
+        this.isSubmiting = false;
+      }
+    );
     console.log(studmarks);
     
   }
@@ -43,7 +57,7 @@ export class UploadMarksComponent implements OnInit {
     this.studentId=id;
     this.isHidden=true;
       var element = this.studentList.find((item) => {
-        return (item.rollno == id);
+        return (item._id == id);
         });
     this.searchString=element.name;
   }

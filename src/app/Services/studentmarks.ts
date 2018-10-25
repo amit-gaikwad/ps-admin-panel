@@ -8,15 +8,15 @@ import { StudentMarks } from '../model/studentmarks';
 
 @Injectable()
 export class StudentMarkService {
-    studentMark= '';
+    studentMarkUrl= '';
     constructor(private http: HttpClient) {
-      //this.studentMark = AppConstant.serverUrl + 'studentmark';
-      this.studentMark="http://loacalhost:4200/assets/studentmarks.json"
+      this.studentMarkUrl = AppConstant.serverUrl + 'skills';
+      // this.studentMark="http://loacalhost:4200/assets/studentmarks.json"
     }
 
 
  getAll(): Observable<any> {
-   return  this.http.get(this.studentMark).pipe(map((res: Response) => res));
+   return  this.http.get(this.studentMarkUrl).pipe(map((res: Response) => res));
  }
   // for student Marks
  create(studentmark: StudentMarks): Observable<any> {
@@ -26,8 +26,7 @@ export class StudentMarkService {
       'Content-Type':  'application/json'
     })
   };
-  var studMarkDetails={studentmark};
-  return this.http.post(this.studentMark, httpOptions);
+  return this.http.post(this.studentMarkUrl,studentmark, httpOptions);
  }
 
 /*  getById(ids : any ): Observable<any>
