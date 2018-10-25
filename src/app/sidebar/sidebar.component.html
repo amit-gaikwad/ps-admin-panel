@@ -20,13 +20,19 @@
          <span>Admit Student</span>
      </a>
     </li>
-    <li *ngIf="auth.isAdminActive()" class="nav-item">
-      <a class="nav-link" [routerLink]="['/studentlist']" routerLinkActive="active">
-           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Student List</span>
-      </a>
-     </li>
-    
+   
+     <li *ngIf="auth.isAdminActive()" class="nav-item">
+        <a class="nav-link" [routerLink]="['/studentlist']" routerLinkActive="active">
+             <i class="fas fa-fw fa-chart-area"></i>
+            <span>Student List</span>
+        </a>
+       </li>
+       <li *ngIf="auth.isAdminActive()" class="nav-item">
+        <a class="nav-link" [routerLink]="['/studentmarks']" routerLinkActive="active">
+             <i class="fas fa-fw fa-chart-area"></i>
+            <span>Upload Student Marks</span>
+        </a>
+       </li>
     <li *ngIf="auth.isAdminActive()" class="nav-item">
        <a class="nav-link" [routerLink] ="['/noticepost']" routerLinkActive="active">
          <i class="fas fa-fw fa-chart-area"></i>
