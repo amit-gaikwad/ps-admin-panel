@@ -22,59 +22,9 @@ export class PieChartComponent{
     student : Student   ;
     studentMarks:StudentMarks;
     studmarks=[];
-    constructor(private studentService: StudentService, private _ActivatedRoute: ActivatedRoute, private _studentMarksService: StudentMarkService){
+    constructor(private studentService: StudentService, private _ActivatedRoute: ActivatedRoute, private studentMarksService: StudentMarkService){
 
-        this.chart = new Chart({
-  
-          chart : {
-                  type: "pie",
-                  plotBackgroundColor : null,
-                  plotBorderWidth : null,
-                  plotShadow : false
-               },
-          title : {
-                    text : "Pie Chart "
-              },
-          tooltip :{
-                      pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-          plotOptions : {
-                           pie :{
-                                 allowPointSelect : true,
-                                 cursor : "pointer",
-                                 dataLabels : {
-                                      enabled : true,
-                                      format : "{point.name}: {point.y: .1f%} ",
-                                      style : {
-                                            color : "blue" 
-                                        }
-                    
-                                    }
-                                }
-                        },
-                        credits: {
-                            enabled: false
-                          },
-          series : [{
-                   type : "pie",
-                   name : "pie chart ",
-                   data: [
-                          {
-                           name: 'Chrome',
-                           y: 12.8,
-                           sliced: false,
-                           selected: true
-                          },
-                          ['Physical',   this.Physical],
-                          ['Education',this.Education],
-                          ['Group',    this.Group],
-                          ['Creativity', this.Creativity],
-                          ['Communication',  this.Communication]
-  
-                    ]
-                }]
         
-        });
     
     }
     ngOnInit() {
@@ -82,28 +32,71 @@ export class PieChartComponent{
 
         if (this.studentId != undefined || this.studentId != null)
         {
-        this.studentService.getById(this.studentId).subscribe((data) => {
-        this.student = data;
-        });
+            this.getMarks();
         }else{
         this.studentId = localStorage.getItem("sId");//find parent's student id and assign
-        this.studentService.getById(this.studentId).subscribe((data) => {
-        this.student = data;
-         });
-      }
+        this.getMarks();
+              }
+              this.chart = new Chart({
+  
+                chart : {
+                        type: "pie",
+                        plotBackgroundColor : null,
+                        plotBorderWidth : null,
+                        plotShadow : false
+                     },
+                title : {
+                          text : "Pie Chart "
+                    },
+                tooltip :{
+                            pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+                      },
+                plotOptions : {
+                                 pie :{
+                                       allowPointSelect : true,
+                                       cursor : "pointer",
+                                       dataLabels : {
+                                            enabled : true,
+                                            format : "{point.name}: {point.y: .1f%} ",
+                                            style : {
+                                                  color : "blue" 
+                                              }
+                          
+                                          }
+                                      }
+                              },
+                              credits: {
+                                  enabled: false
+                                },
+                series : [{
+                         type : "pie",
+                         name : "pie chart ",
+                         data: [
+                                {
+                                 name: 'Chrome',
+                                 y: 12.8,
+                                 sliced: false,
+                                 selected: true
+                                },
+                                ['Physical',   this.Physical],
+                                ['Education',this.Education],
+                                ['Group',    this.Group],
+                                ['Creativity', this.Creativity],
+                                ['Communication',  this.Communication]
+        
+                          ]
+                      }]
+              
+              });
     }
     getMarks()
     {
-        this.studentService.getAll().subscribe
-             (
-             (data) => {
-                 this.studmarks = data;
-                 var element = this.studmarks.filter((item) => {
+        this.studentMarksService.getAll().subscribe(data  => {
+                data = data.filter((item) => {
                      return (item._id == this.studentId);
                  })
-                 //console.log(element);
-                 if (this.studentId != null) {
-                     var studentLatestMarks=element.pop();
+                 console.log(data);
+                 var studentLatestMarks=data.pop();
                      this.Physical=studentLatestMarks.phyicalactivity;
                      this.Group=studentLatestMarks.groupactivity;
                      this.Education=studentLatestMarks.educational;
@@ -111,8 +104,7 @@ export class PieChartComponent{
                      this.Communication=studentLatestMarks.communication;
 
                 }
-            }
-        
-        )
+                
+            )
+        }
     }
-}
