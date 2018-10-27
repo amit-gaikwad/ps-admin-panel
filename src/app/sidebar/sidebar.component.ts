@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
     
   sId = "";
 
-  constructor( private auth : AuthService) { }
+  constructor( public auth : AuthService) { }
 
   ngOnInit() {
     this.sId = localStorage.getItem("sId");

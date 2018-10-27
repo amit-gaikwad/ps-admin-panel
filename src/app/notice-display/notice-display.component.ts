@@ -11,6 +11,7 @@ import { AuthService } from '../auth.service';
 export class NoticeDisplayCompnent {
     eNotices = [];
     noticeId = 1;
+    p : any;
     constructor(private noticeService: NoticeService, private router: Router, private auth : AuthService) {
         noticeService.getAll().subscribe((data) => {
                 this.eNotices = data;

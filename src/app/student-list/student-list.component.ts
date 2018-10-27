@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class StudentListComponent implements OnInit {
  
+  p : any;
   studentList = [];
   searchString = "";
   constructor( private studentService : StudentService, private _router : Router) { 

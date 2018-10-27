@@ -49,7 +49,7 @@
                     <div class="col-lg-4 col-sm-4 col-xs-12">
                         <input id="rollno" name="rollno" placeholder="Roll Number..." 
                         class="form-control form-control-sm" ngModel [value]="sRollNo" 
-                        #rollnoRef="ngModel" (keypress)="onlyDecimalNumberKey($event)" required>
+                        #rollnoRef="ngModel" required>
                         <div *ngIf="rollnoRef.invalid && rollnoRef.touched">
                             <span class="label label-danger" *ngIf="rollnoRef.errors.required">
                                 Please Enter Roll Number

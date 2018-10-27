@@ -28,7 +28,7 @@ export class SchoolGalleryComponent implements OnInit{
     ngOnInit(){
     }  
 
-  constructor(private galleryService: GalleryService, private auth : AuthService) { 
+  constructor(public galleryService: GalleryService, public auth : AuthService) { 
       galleryService.getAll().subscribe(
         (data)=>
         {

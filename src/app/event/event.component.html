@@ -11,7 +11,7 @@
           <label for="title"><b>Title</b></label>
       </div>
       <div class="col-lg-4 col-sm-4 col-xs-12">
-          <input type="text" id="title" name="title" class="form-control form-control-sm" placeholder="Enter title.." ngModel [value]="title" #titleRef="ngModel" required>
+          <input type="text" id="title" name="title" class="form-control form-control-sm" placeholder="Enter title.." ngModel #titleRef="ngModel" required>
               <div *ngIf="titleRef.invalid && titleRef.touched">
                     <span class="label label-danger" *ngIf="titleRef.errors.required">
                             Please give title
@@ -25,7 +25,7 @@
           <label for="description"><b>Description</b></label>
       </div>
       <div class="col-lg-4 col-sm-4 col-xs-12">
-          <textarea id="description" name="description" placeholder="Enter File description..."  ngModel [value]="description" #descRef="ngModel" required></textarea>
+          <textarea id="description" name="description" placeholder="Enter File description..."  ngModel #descRef="ngModel" required></textarea>
           <div *ngIf="descRef.invalid && descRef.touched">
                 <span class="label label-danger" *ngIf="descRef.errors.required">
                         Please give description
