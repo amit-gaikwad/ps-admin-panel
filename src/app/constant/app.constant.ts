@@ -1,7 +1,7 @@
 export class AppConstant {
     //  static serverUrl = 'http://34.213.109.136:5000/';
     // static serverUrl = 'http://localhost:5000/';
-    static serverUrl = 'http://www.funnydayschildcare.com.au:5000/';
+    static serverUrl = 'http://funnydayschildcare.com.au:5000/';
 
 
     static awsAccessKeyId = "AKIAIGEI7HGWYMTIV6ZA";
