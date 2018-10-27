@@ -7,6 +7,15 @@
     
     
 }
+.alert-box
+  {
+    max-width : 300px;
+    min-height: 300px;
+      }
+          .alert-icon
+    {
+        padding-bottom: 20px;
+    }
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;

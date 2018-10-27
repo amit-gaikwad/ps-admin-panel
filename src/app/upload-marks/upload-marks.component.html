@@ -111,12 +111,18 @@
                     
             </div>
             <div class="row">
-                    <div class="col-lg-2 col-sm-2 col-xs-12">
-                    </div>
+                    
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                 
-                    <button type="submit" value="Submit" [disabled]="isNotUploaded">Submit</button>
+                    <button type="submit" value="Submit" [disabled]="studentMarks.invalid">Submit</button>
                 </div>
+                <div class="alert-box" *ngIf="success == true">
+                    <div class="alert alert-success">
+                      <div class="alert-message text-center">
+                        <strong>Success!</strong> Marks updated
+                      </div>
+                    </div>
+                  </div>
             </div>
         </form>
     </div>

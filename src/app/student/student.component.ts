@@ -32,6 +32,8 @@ export class StudentComponent implements OnInit {
   pEmail='';
   paddress='';
   pMobile='';
+  success = false;
+
   
   studentDetails = [];
 
@@ -115,8 +117,7 @@ onUpload (event) {
 
   this.studentService.create(student,parent).subscribe(
       studentObj => {
-        console.log('Student added successfully');
-        console.log(studentObj);
+        this.success = true;
         val.reset();
         this.isSubmiting = false;
         this.isNotUploaded = true;

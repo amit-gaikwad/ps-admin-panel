@@ -7,6 +7,17 @@
     
     
 }
+.alert-box
+  {
+    max-width : 300px;
+    min-height: 300px;
+      }
+          .alert-icon
+    {
+        padding-bottom: 20px;
+    }
+  
+
 .frameDisp{
   padding-top: 100px;
 }

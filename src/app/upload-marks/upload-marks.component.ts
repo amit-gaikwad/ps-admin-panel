@@ -18,6 +18,7 @@ export class UploadMarksComponent implements OnInit {
   studentname="";
   student : Student;
   isSubmiting = false;
+  success = false;
  
   constructor(private studentService : StudentService, private marksService : StudentMarkService) { }
 
@@ -43,6 +44,7 @@ export class UploadMarksComponent implements OnInit {
       studentObj => {
         val.reset();
         this.isSubmiting = false;
+        this.success = true;
       },
       error => {
         console.log(error);
