@@ -38,7 +38,7 @@ export class EventComponent {
         });
         const s3 = new AWS.S3();
         const params = {
-            Bucket: 'qmbucketuploadfile',
+            Bucket: 'preschoolaus',
             Key: file.name,
             ContentType: file.type,
             Body: file,
