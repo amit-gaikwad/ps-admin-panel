@@ -28,7 +28,7 @@ export class SchoolGalleryComponent implements OnInit{
     ngOnInit(){
     }  
 
-  constructor(private galleryService: GalleryService, private auth : AuthService) { 
+  constructor(public galleryService: GalleryService, public auth : AuthService) { 
       galleryService.getAll().subscribe(
         (data)=>
         {
@@ -52,7 +52,7 @@ export class SchoolGalleryComponent implements OnInit{
       });
       const s3 = new AWS.S3();
       const params = {
-          Bucket: 'preschool-angular',
+          Bucket: 'preschoolaus',
           Key: file.name,
           ContentType: file.type,
           Body: file,

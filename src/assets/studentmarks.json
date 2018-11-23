@@ -1,0 +1,14 @@
+[   {"id":"1","communication":"60","creativity":"60","assesmentdate":"2018/08/09","groupactivity":"60", "phyicalactivity":"50","educational":"60","student_id":"1"},
+    {"id":"2","communication":"50","creativity":"50","assesmentdate":"2018/08/09","groupactivity":"70", "phyicalactivity":"40","educational":"20","student_id":"2"},
+    {"id":"3","communication":"60","creativity":"60","assesmentdate":"2018/08/09","groupactivity":"80","phyicalactivity":"40","educational":"20","student_id":"3" },
+    {"id":"4","communication":"80","creativity":"40","assesmentdate":"2018/08/09","groupactivity":"90","phyicalactivity":"50","educational":"30","student_id":"4"},
+    {"id":"5","communication":"60","creativity":"50","assesmentdate":"2018/08/09","groupactivity":"50","phyicalactivity":"40","educational":"40","student_id":"5"},
+    {"id":"5","communication":"50","creativity":"60","assesmentdate":"2018/08/09","groupactivity":"60","phyicalactivity":"50","educational":"50","student_id":"6"},
+    {"id":"6","communication":"60","creativity":"90","assesmentdate":"2018/08/10","groupactivity":"40","phyicalactivity":"60","educational":"60","student_id":"1"},
+    {"id":"7","communication":"60","creativity":"40","assesmentdate":"2018/08/10","groupactivity":"90","phyicalactivity":"70","educational":"70","student_id":"2"},
+    {"id":"8","communication":"50","creativity":"80","assesmentdate":"2018/08/10","groupactivity":"50","phyicalactivity":"80","educational":"80","student_id":"3"},
+    {"id":"9","communication":"60","creativity":"80","assesmentdate":"2018/08/10","groupactivity":"60","phyicalactivity":"90","educational":"90","student_id":"4"},
+    {"id":"10","communication":"50","creativity":"90","assesmentdate":"2018/08/10","groupactivity":"90","phyicalactivity":"80","educational":"80","student_id":"5"},
+    {"id":"11","communication":"50","creativity":"50","assesmentdate":"2018/08/10","groupactivity":"90","phyicalactivity":"70","educational":"70","student_id":"6"},
+    {"id":"12","communication":"60","creativity":"20","assesmentdate":"2018/08/10","groupactivity":"70","phyicalactivity":"60","educational":"50","student_id":"7"}
+]

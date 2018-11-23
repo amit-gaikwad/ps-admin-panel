@@ -36,6 +36,8 @@ import { ParentDashboardComponent } from './parent-dashboard/parent-dashboard.co
 import { ParentService } from './Services/parent.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminService } from './Services/admin.service';
+import {StudentMarkService} from './Services/studentmarks';
+import { UploadMarksComponent } from './upload-marks/upload-marks.component';
 
 
 
@@ -59,7 +61,8 @@ import { AdminService } from './Services/admin.service';
     ParentLoginComponent,
     DashboardComponent,
     ParentDashboardComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    UploadMarksComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ import { AdminService } from './Services/admin.service';
     
    
   ],
-  providers: [AdminService, NoticeService, ProgramService, GalleryService, StudentService, ParentService ],
+  providers: [StudentMarkService,AdminService, NoticeService, ProgramService, GalleryService, StudentService, ParentService ],
    
   
   bootstrap: [AppComponent]

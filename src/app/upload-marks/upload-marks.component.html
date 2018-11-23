@@ -1,0 +1,131 @@
+<div class="container">
+        <div class="loading" *ngIf="isSubmiting">Loading&#8230;</div>
+    <div class="frameDisp">
+    <div class="loading" *ngIf="isSubmiting">Loading&#8230;</div>
+    <div class="col-lg-12 col-sm-12">
+            <div class="titleSize">
+            <h3>
+                Student Marks
+            </h3>
+        </div>
+        <div class="row progDisp">
+            <div class="col-lg-2 col-sm-2 col-xs-12 ">
+                <label for="StudentName"><b>Student Name</b></label>
+            </div>
+          <div class="col-lg-6 col-sm-6 col-xs-12 ">
+            <input type="text" class="form-control form-control-sm" placeholder="Search ...." name="search" [(ngModel)]="searchString"
+             (keydown)="getBySerach()">
+              <table [hidden] = "isHidden" class = "hoverTable">
+                    <tbody>
+                    <tr  *ngFor="let i of studentList">
+                        <td (click)="onSelect(i._id)">{{i.name}}</td>
+                    </tr>
+                    </tbody>
+                    
+                </table>
+
+              
+          </div>
+          <div class="col-lg-2 col-sm-2 col-xs-12 ">
+            <button class="icon"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+        <form #studentMarks="ngForm" (ngSubmit)="onStudentMarksSubmit(studentMarks)" >
+            <div class="row"> 
+                <div class="col-lg-2 col-sm-2 col-xs-12">
+                    <label for="Communication"><b>Communication</b></label>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <input type="number" id="communication" name="communication" 
+                    class="form-control form-control-sm" placeholder="Communication Skill.." 
+                    ngModel #communicationRef="ngModel" required>
+                        <div *ngIf="communicationRef.invalid && communicationRef.touched">
+                            <span class="label label-danger" *ngIf="communicationRef.errors.required">
+                                Please Enter Marks in Communication Skill
+                            </span>
+                        </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="Physical"><b>Physical</b></label> 
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <input type="number" id="physical" name="physical" 
+                    class="form-control form-control-sm" placeholder="Physical Skill.." 
+                    ngModel #physicalRef="ngModel" required>
+
+                        <div *ngIf="physicalRef.invalid && physicalRef.touched">
+                            <span class="label label-danger" *ngIf="physicalRef.errors.required">
+                                Please Enter Marks in physical Skill
+                            </span>
+                        </div>
+
+                </div>
+
+                
+            </div>
+      
+            <div class="row">
+                <div class="col-lg-2 col-sm-2 col-xs-12"> 
+                    <label for="creativity"><b>Creativity</b></label>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <input type="number" id="creativity" name="creativity" placeholder="Creativity Skill..." 
+                    class="form-control form-control-sm" ngModel #creativityRef="ngModel"  required>
+                    <div *ngIf="creativityRef.invalid && creativityRef.touched">
+                        <span class="label label-danger" *ngIf="creativityRef.errors.required">
+                            Please Enter Marks in Creativity Skill
+                        </span>
+                    </div>
+                </div> 
+                <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="groupactivity"><b>Group Activity</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input type="number" id="groupactivity" name="groupactivity" placeholder="Group Activity Skill..." 
+                        class="form-control form-control-sm" ngModel 
+                        #groupactivityRef="ngModel"  required>
+                        <div *ngIf="groupactivityRef.invalid && groupactivityRef.touched">
+                            <span class="label label-danger" *ngIf="groupactivityRef.errors.required">
+                                Please Enter Marks in Group Activity Skill
+                            </span>
+                        </div>   
+                    </div>
+                
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-2 col-sm-2 col-xs-12">
+                        <label for="educational"><b>Educational Skill</b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <input id="educational" name="educational" placeholder="Educational Skill..." type="number"
+                        class="form-control form-control-sm quantity" ngModel
+                        #educationalRef="ngModel"  required>
+                        <div *ngIf="educationalRef.invalid && educationalRef.touched">
+                            <span class="label label-danger" *ngIf="educationalRef.errors.required">
+                                Please Enter Marks in Educational Skill
+                            </span>
+                        </div>
+                    </div>
+                    
+            </div>
+            <div class="row">
+                    
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                
+                    <button type="submit" value="Submit" [disabled]="studentMarks.invalid">Submit</button>
+                </div>
+                <div class="alert-box" *ngIf="success == true">
+                    <div class="alert alert-success">
+                      <div class="alert-message text-center">
+                        <strong>Success!</strong> Marks updated
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </form>
+    </div>
+ 
+
+    </div>
+</div>
