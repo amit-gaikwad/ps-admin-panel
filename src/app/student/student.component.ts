@@ -70,7 +70,7 @@ onUpload (event) {
       });
       const s3 = new AWS.S3();
       const params = {
-          Bucket: 'qmbucketuploadfile',
+          Bucket: AppConstant.bucketName,
           Key: file.name,
           ContentType: file.type,
           Body: file,
