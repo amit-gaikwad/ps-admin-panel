@@ -43,8 +43,17 @@ export class StudentListComponent implements OnInit {
 
   navigateToInfo(id:any)
   { 
-    console.log("evet  is clicked ...");
      this._router.navigate(['studentinfo',{sId:id}]);
+  }
+
+  deleteStudent(id:any){
+    if(confirm("Are you sure to delete ?")){
+
+      this.studentService.deleteById(id).subscribe(data => { 
+        window.location.reload();
+       });
+
+    }
   }
   
 }

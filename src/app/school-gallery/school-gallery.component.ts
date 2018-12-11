@@ -128,9 +128,11 @@ export class SchoolGalleryComponent implements OnInit{
           }// an error occurred
       else 
           { 
-            this.galleryService.deleteById(item._id).subscribe(data => {  });
-            this.isUploading = false;
-            window.location.reload();          } // successful response
+            this.galleryService.deleteById(item._id).subscribe(data => { 
+              this.isUploading = false;
+              window.location.reload();  
+             });
+                   } // successful response
           
     });
   }

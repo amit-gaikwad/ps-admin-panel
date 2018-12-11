@@ -103,7 +103,7 @@ onUpload (event) {
   student.gender = val.value.gender;
   student.rollno = val.value.rollno;
   student.photourl = this.photourl;
-  student.classteacher_id = '1'; // will be change later
+  student.classteacher_id = val.value.class;
   const parent=new Parent();
 
   parent.name=val.value.pname;

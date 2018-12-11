@@ -25,7 +25,6 @@ body{
  }      
  .noticeDisplay:nth-child(odd) {
    background: #ffecfa;
-   max-height: 300px;
   }
   .noticeDisplay:nth-child(even) {
     background:#ecfdff; 
@@ -69,12 +68,14 @@ p {
     padding: 80px 0 80px 0;
    
    }
-.funnyForm h2 {
+ h2 {
 color:#000;
-font-size: 40px;
-font-weight: 700;
+font-size: 30px;
 text-align: center;
-margin: 0 0 30px 0;	
+}
+pre{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 .popup {
@@ -285,7 +286,6 @@ margin: 0 0 30px 0;
 h1,
 h2,
 h3 {
-  color: #60cc69;
   line-height: 1.5;
 
 

@@ -35,38 +35,6 @@
                         </div>
                 </div>
             </div>
-
-            <div class="row">
-                    <div class="col-lg-2 col-sm-2 col-xs-12">
-                        <label for="date"><b>Class</b></label>
-                    </div>
-                    <div class="col-lg-8 col-sm-8 col-xs-12">
-                        <select class="form-control form-control-sm" id="class" 
-                                name="class" [value]="nClass" ngModel #classRef="ngModel" required>
-                                    <option *ngFor = "let class of classes">{{class}}</option>
-                                  </select>
-                                  <div *ngIf="classRef.invalid && classRef.touched">
-                                        <span class="label label-danger" *ngIf="classRef.errors.required">
-                                            Please Enter Title
-                                        </span>
-                                    </div>
-                    </div>
-            </div>
-            
-            <!-- <div class="row">
-                <div class="col-lg-2 col-sm-2 col-xs-12">
-                    <label for="date"><b>Date</b></label>
-                </div>
-                <div class="col-lg-8 col-sm-8 col-xs-12">
-                    <input  id="date" name="date" placeholder="Notice date.." ngModel [value]="nDate" #dateRef="ngModel" required>
-                    <div *ngIf="dateRef.invalid && dateRef.touched">
-                        <div *ngIf="dateRef.errors.required" class="label-danger">
-                            Please Enter Date
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
             <div class="row">
                     <div class="col-lg-2 col-sm-2 col-xs-12">
                     </div>
