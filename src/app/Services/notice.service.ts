@@ -36,5 +36,8 @@ export class NoticeService {
 
         return this.http.post(this.noticeUrl, notice, httpOptions);
     }
+    deleteById(id: any): Observable<any> {
+        return this.http.delete(this.noticeUrl + '/' +id).pipe(map((res: Response) => res));
+      }
 
 }

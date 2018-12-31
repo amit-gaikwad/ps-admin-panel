@@ -29,13 +29,12 @@ export class SchoolGalleryComponent implements OnInit{
     }  
 
   constructor(public galleryService: GalleryService, public auth : AuthService) { 
-      galleryService.getAll().subscribe(
-        (data)=>
-        {
-          this.eProg = data;
-        }
-     )
-  }
+    this.galleryService.getAll().subscribe(
+      (data)=>
+      {
+        this.eProg = data;
+      }
+   )  }
 
   selectFile(event) {
 
@@ -52,7 +51,7 @@ export class SchoolGalleryComponent implements OnInit{
       });
       const s3 = new AWS.S3();
       const params = {
-          Bucket: 'preschoolaus',
+          Bucket: AppConstant.bucketName,
           Key: file.name,
           ContentType: file.type,
           Body: file,
@@ -94,6 +93,7 @@ export class SchoolGalleryComponent implements OnInit{
         this.isPrivate = 'public';
         this.isSubmiting = false;
         this.isNotUploaded = true;
+        window.location.reload();
       },
       error => {
         console.log(error);
@@ -101,4 +101,40 @@ export class SchoolGalleryComponent implements OnInit{
       }
     )
   }
+
+ 
+  onDelete(item :  any )
+  {
+    if(confirm("Are you sure to delete ?")) {
+      this.isUploading = true;
+
+    var str = item.img_url;
+    var n = str.lastIndexOf('/');
+    let  result = str.substring(n + 1);
+    AWS.config.update({
+      'accessKeyId': AppConstant.awsAccessKeyId,
+      'secretAccessKey': AppConstant.awsSecretAccessKey,
+      'region': AppConstant.awsRegion
+  });
+  const s3 = new AWS.S3();
+    var params = {
+      Bucket: AppConstant.bucketName,
+      Key: result,
+    };
+    s3.deleteObject(params, (err, data) => {
+      if (err)
+          { console.log(err, err.stack); 
+            this.isUploading = false;
+          }// an error occurred
+      else 
+          { 
+            this.galleryService.deleteById(item._id).subscribe(data => { 
+              this.isUploading = false;
+              window.location.reload();  
+             });
+                   } // successful response
+          
+    });
+  }
+}
 }

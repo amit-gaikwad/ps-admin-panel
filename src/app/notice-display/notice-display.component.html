@@ -7,16 +7,15 @@
                     <div class="row"> 
                         <div  class="col-md-3 col-sm-3 col-xs-12 noticeShow">
                             <h3><b>{{notice.date | date:"fullDate" }}</b></h3>
-                            <h3>Class - {{notice.class}} </h3>
                         </div>
                         
                         <div class="col-md-6 col-sm-8 col-xs-12 noticeShow">
-                             <p>{{ notice.title }}<p>
-                             <h3>{{notice.description}}</h3>  
+                             <h2>{{ notice.title }}</h2>
+                             <pre>{{notice.description}}</pre>  
                         </div>
                         <div *ngIf="auth.isAdminActive()" class="col-md-3 col-sm-2 col-xs-12 noticeShow">
                             <button class="btnUp" (click)="onUpdateClick(notice.id)">Update</button>
-                            <button class="btnDel" (click)="onDeleteClick(notice.id)">Delete</button>
+                            <button class="btnDel" (click)="onDeleteClick(notice._id)">Delete</button>
                         </div>
                     
                      </div>                   

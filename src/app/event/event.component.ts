@@ -8,7 +8,7 @@ declare var AWS: any;
 @Component({
   selector: 'app-progrmme',
   templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css','../../assets/css/loading-animation.css']
+  styleUrls: ['./event.component.css', '../../assets/css/loading-animation.css']
 })
 export class EventComponent {
 
@@ -18,15 +18,15 @@ export class EventComponent {
   isNotUploaded = true;
   isUploading = false;
   isSubmiting = false;
-  pdfUrl = ''; 
+  pdfUrl = '';
 
   constructor(private progService: ProgramService) {}
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
-  
+
   onUpload (value: any) {
-     
+
     console.log('up load fun ', value);
     this.isUploading = true ;
     const file = this.selectedFiles.item(0);
@@ -38,7 +38,7 @@ export class EventComponent {
         });
         const s3 = new AWS.S3();
         const params = {
-            Bucket: 'preschoolaus',
+            Bucket: AppConstant.bucketName,
             Key: file.name,
             ContentType: file.type,
             Body: file,
@@ -53,7 +53,7 @@ export class EventComponent {
               this.isNotUploaded = false;
               this.isUploading = false;
 
-              this.pdfUrl =AppConstant.awsPhotoUrl+file.name;
+              this.pdfUrl = AppConstant.awsPhotoUrl + file.name;
             }
         });
     } else {
@@ -61,10 +61,10 @@ export class EventComponent {
       this.isUploading = false;
     }
   }
-  onProgramSubmit(event:NgForm) {
+  onProgramSubmit(event: NgForm) {
     this.isSubmiting = true;
     const events = new Event();
-    events.title = event.value.title ; 
+    events.title = event.value.title ;
     events.description =  event.value.description ;
     events.date = new Date();
     events.imgurl =  this.pdfUrl ;

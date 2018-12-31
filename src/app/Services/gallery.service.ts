@@ -31,4 +31,9 @@ export class GalleryService {
           };
         return this.http.post(this.galleryUrl,gallery,httpOptions);
     }
+
+    deleteById(ids: any): Observable<any> {
+        return this.http.delete(this.galleryUrl + '/' +ids).pipe(map((res: Response) => res));
+    }
+
 }

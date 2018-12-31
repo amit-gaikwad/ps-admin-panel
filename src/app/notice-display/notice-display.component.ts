@@ -15,16 +15,22 @@ export class NoticeDisplayCompnent {
     constructor(private noticeService: NoticeService, private router: Router, private auth : AuthService) {
         noticeService.getAll().subscribe((data) => {
                 this.eNotices = data;
+                this.eNotices.reverse();
                 }
         );
     }
 
     onUpdateClick(id: number) {
-       // console.log(id);
-      //  this.noticeId = id;
-        //this.router.navigate(['NoticePost', { nId : this.noticeId }]);
+          }
+
+    onDeleteClick(id: any) {
+            if(confirm("Are you sure to delete ?")){
+                console.log(id);
+              this.noticeService.deleteById(id).subscribe(data => { 
+                window.location.reload();
+               });
+        
+            
     }
-    onDeleteClick(id: number) {
-        console.log(id);
-    }
+}
 }

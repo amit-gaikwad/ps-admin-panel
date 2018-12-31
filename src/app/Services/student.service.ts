@@ -35,5 +35,7 @@ export class StudentService {
  {
    return this.http.get(this.studentUrl+'/'+ids).pipe(map((res:Response) => res)); 
 }
-
+deleteById(id: any): Observable<any> {
+  return this.http.delete(this.studentUrl + '/' +id).pipe(map((res: Response) => res));
+}
 }

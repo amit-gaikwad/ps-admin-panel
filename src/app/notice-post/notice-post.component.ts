@@ -53,7 +53,7 @@ export class NoticePostComponent {
         notice.title = form.value.title;
         notice.description =  form.value.description ;
         notice.date = new Date() ;
-        notice.class = form.value.class ;
+        notice.class = "all" ;
         this.noticeService.create(notice).subscribe(
             student => {
               console.log("Notice added successfully");

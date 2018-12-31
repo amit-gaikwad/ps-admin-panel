@@ -19,4 +19,8 @@
 .container{
     margin-top: 70px;
 }
+
+tr:hover{ 
+    background-color:rgb(127, 251, 255);
+}
     

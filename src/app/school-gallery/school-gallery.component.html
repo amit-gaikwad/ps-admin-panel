@@ -78,16 +78,21 @@
          Images
      </h2>
      <div class="row">
-       <div *ngFor="let item of eProg" class="imgDisp">
-            <img [src]="item.img_url" class="imgSize"/>
-            <div class="row">
-                
-                <button *ngIf="auth.isAdminActive()" class="Deletebutton">Delete</button>
-                <button class="viewbutton">View</button>
-
-            </div>
+        
+       <div class="imgDiv" *ngFor="let item of eProg">
             
+           <div class="imgDisp" *ngIf="auth.isAdminActive() || item.isPrivate == true " >
+                   <div class="col-md-4 hover01" >
+                       <a [href]="item.img_url " target="_blank">
+                           <figure>
+                               
+                               <img [src]="item.img_url" class="imgSize"/>
+                            </figure> 
+                        </a>
+                        <button *ngIf="auth.isAdminActive()" class="Deletebutton" (click)="onDelete(item)">Delete</button>
+                    </div>
+                    </div>
+       </div>
        </div>
     </div>
    </div>
-  </div>

@@ -25,15 +25,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let i of studentList | paginate: { itemsPerPage: 10 ,currentPage : p }" style="height:20px;">
-        <td>{{i.name}}</td>
-        <td>2-3 Years</td>
-        <td>{{i.rollno}}</td>
-        <td>{{i.age}}</td>
+      <tr *ngFor="let i of studentList | paginate: { itemsPerPage: 10 ,currentPage : p }" 
+      style="height:20px;" >
+        <td (click)="navigateToInfo(i._id)">{{i.name}}</td>
+        <td (click)="navigateToInfo(i._id)">{{i.classteacher_id}}</td>
+        <td (click)="navigateToInfo(i._id)">{{i.rollno}}</td>
+        <td (click)="navigateToInfo(i._id)">{{i.age}}</td>
         <td> <span>
            <button> <i class="fa fa-edit btn-space" ></i> </button>
-           <button  (click)="navigateToInfo(i._id)"> <i class="fa fa-eye btn-space"></i> </button>
-           <button> <i class="fa fa-trash-alt btn-space"></i> </button> 
+           <button (click)="deleteStudent(i._id)"> <i class="fa fa-trash-alt btn-space"></i> </button> 
           </span> </td>
       </tr>
     </tbody>
