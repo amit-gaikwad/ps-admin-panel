@@ -4,12 +4,12 @@ export class AppConstant {
      static serverUrl = 'https://funnydayschildcare.com.au:5000/';
 
 
-    static awsAccessKeyId = "AKIAIZQ4ESGVL42WDWCQ";
-    static awsSecretAccessKey = "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";
+    static awsAccessKeyId = 'AKIAIZQ4ESGVL42WDWCQ';
+    static awsSecretAccessKey = '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';
     static awsRegion = 'us-west-2';
     static bucketName = 'funnydays';
-   
+
     // static awsPhotoUrl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/";
-    static awsPhotoUrl = "https://s3-us-west-2.amazonaws.com/funnydays/";
+    static awsPhotoUrl = 'https://s3-us-west-2.amazonaws.com/funnydays/';
 
 }
